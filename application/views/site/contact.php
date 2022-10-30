@@ -53,51 +53,85 @@
                         Send me message
                      </h2>
                   </div>
-                  <div class="row ">
-                     <div class="col-sm-6">
-                        <div class="mb-3">
-                           <label>Name</label>
-                           <div class="ion_in">
-                              <i class="fa fa-user-o"></i>
-                              <input type="text" name="name" class="form-control" placeholder="Name" id="name" required="">
+                  <form id="contactUsForm" name="contactUsForm" method="POST" onsubmit="send_contact(event);" >
+                     <div class="row ">
+                        <div class="col-sm-6">
+                           <div class="mb-3">
+                              <label>Name</label>
+                              <div class="ion_in">
+                                 <i class="fa fa-user-o"></i>
+                                 <input type="text" name="user_name" class="form-control" placeholder="Name" id="name" required="">
+                              </div>
+                              <p class=" text-danger" style="display:none" id="alte_name">Please enter valid Username</p>
+                              <p class=" text-danger" style="display:none" id="alte_name2">Sorry first space is not allowed</p>
                            </div>
-                           <p class=" text-danger" style="display:none" id="alte_name">Please enter valid Username</p>
-                           <p class=" text-danger" style="display:none" id="alte_name2">Sorry first space is not allowed</p>
+                        </div>
+                        <div class="col-sm-6">
+                           <div class="mb-3">
+                              <label>Email</label>
+                              <div class="ion_in">
+                                 <i class="fa fa-envelope-o"></i>
+                                 <input type="email" name="email" class="form-control" placeholder="Email" id="email" required="">
+                              </div>
+                              <p class=" text-danger" style="display:none" id="alte_email">Please enter valid Email</p>
+                              <p class=" text-danger" style="display:none" id="alte_email3">Sorry first space is not allowed</p>
+                           </div>
                         </div>
                      </div>
-                     <div class="col-sm-6">
-                        <div class="mb-3">
-                           <label>Email</label>
-                           <div class="ion_in">
-                              <i class="fa fa-envelope-o"></i>
-                              <input type="text" name="email" class="form-control" placeholder="Email" id="email" required="">
-                           </div>
-                           <p class=" text-danger" style="display:none" id="alte_email">Please enter valid Email</p>
-                           <p class=" text-danger" style="display:none" id="alte_email3">Sorry first space is not allowed</p>
+                     <div class="mb-3">
+                        <label>Number</label>
+                        <div class="ion_in">
+                           <i class="fa fa-phone"></i>
+                           <input type="number" name="phone" class="form-control" placeholder="Number" required="">
                         </div>
                      </div>
-                  </div>
-                  <div class="mb-3">
-                     <label>Number</label>
-                     <div class="ion_in">
-                        <i class="fa fa-phone"></i>
-                        <input type="text" name="number" class="form-control" placeholder="Number" id="email" required="">
+                     <div class="mb-3">
+                        <label>Message</label>
+                        <div class="ion_in">
+                           <i class="fa fa-edit"></i>
+                           <textarea class="form-control textarea" name="message" placeholder="Message" id="message" required="" ></textarea>
+                        </div>
                      </div>
-
-                  </div>
-                  <div class="mb-3">
-                     <label>Message</label>
-                     <div class="ion_in">
-                        <i class="fa fa-edit"></i>
-                        <textarea class="form-control" name="message" placeholder="Message" id="message"></textarea>
+                     <div id="responseMessage"></div>
+                     <div class="">
+                        <button class="btn btn_theme btn-block btn-lg btn_submit" type="submit" >Submit</button>
                      </div>
-                  </div>
-                  <div class="">
-                     <button class="btn btn_theme btn-block btn-lg">Submit</button>
-                  </div>
+                  </form>
                </div>
             </div>
          </div>
       </div>
    </div>
 </div>
+
+<?php include_once('include/tinymce.php'); ?>
+
+<script>
+   function send_contact(e){
+      e.preventDefault();
+      $.ajax({
+      type: 'POST',
+      url: BASE_URL + 'Contact-Admin',
+      data: new FormData($('#contactUsForm')[0]),
+      dataType: 'JSON',
+      processData: false,
+      contentType: false,
+      cache: false,
+      beforeSend: function(xhr) {
+        $(".btn_submit").attr('disabled', true);
+        $(".btn_submit").html(LOADING);
+        $("#responseMessage").html('');
+        $("#responseMessage").hide();
+      },
+      success: function(response) {
+        $(".btn_submit").prop('disabled', false);
+        $(".btn_submit").html('Submit');
+        $("#responseMessage").html(response.responseMessage);
+        $("#responseMessage").show();
+        if (response.status == 1){
+         $('form#contactUsForm').trigger("reset");
+        }
+      }
+    });
+   }
+</script>

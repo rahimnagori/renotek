@@ -68,8 +68,38 @@ class Home extends CI_Controller
     $pageData['productDetails'] = $this->Common_Model->fetch_records('products', array('id' => $id), false, true);
     if(empty($pageData['productDetails'])) redirect('Shop');
 
+    $pageData['productImages'] = $this->Common_Model->fetch_records('product_images', array('product_id' => $id));
+
     $this->load->view('site/include/header', $pageData);
     $this->load->view('site/details', $pageData);
     $this->load->view('site/include/footer', $pageData);
+  }
+
+  public function send_contact_request(){
+    $response['status'] = 0;
+    $response['responseMessage'] = '';
+    $this->form_validation->set_rules('user_name', 'user_name', 'required|trim');
+    $this->form_validation->set_rules('email', 'email', 'required|valid_email|trim');
+    $this->form_validation->set_rules('phone', 'phone', 'required|trim');
+    $this->form_validation->set_rules('message', 'message', 'required|trim');
+    if ($this->form_validation->run()) {
+      $insert = array(
+        'user_name' => $this->input->post('user_name'),
+        'email' => $this->input->post('email'),
+        'phone' => $this->input->post('phone'),
+        'message' => $this->input->post('message'),
+        'created' => date("Y-m-d H:i:s")
+      );
+      
+      if ($this->Common_Model->insert('contact_requests', $insert)) {
+        $response['status'] = 1;
+        $response['responseMessage'] = $this->Common_Model->success('Request received successfully.');
+      }
+    }else{
+      $response['status'] = 2;
+      $response['responseMessage'] = $this->Common_Model->error(validation_errors());
+    }
+    $this->session->set_flashdata('responseMessage', $response['responseMessage']);
+    echo json_encode($response);
   }
 }

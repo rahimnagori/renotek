@@ -115,6 +115,8 @@
       sync1.data('owl.carousel').to(number, 300, true);
     });
   });
+  const BASE_URL = "<?= site_url(); ?>";
+  const LOADING = "<i class='fa fa-spin fa-spinner' aria-hidden='true'></i> Processing ... ";
 </script>
 </body>
 

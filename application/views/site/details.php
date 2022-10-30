@@ -14,54 +14,30 @@
         <div class="slider_dyta">
           <div class="">
             <div id="sync1" class="owl-carousel owl-theme">
-              <div class="item">
-                <img src="<?= site_url('assets/site/'); ?>img/img1.png" alt="" class="img_r">
-              </div>
-              <div class="item">
-                <img src="<?= site_url('assets/site/'); ?>img/img1.png" alt="" class="img_r">
-              </div>
-              <div class="item">
-                <img src="<?= site_url('assets/site/'); ?>img/img1.png" alt="" class="img_r">
-              </div>
-              <div class="item">
-                <img src="<?= site_url('assets/site/'); ?>img/img1.png" alt="" class="img_r">
-              </div>
-              <div class="item">
-                <img src="<?= site_url('assets/site/'); ?>img/img1.png" alt="" class="img_r">
-              </div>
-              <div class="item">
-                <img src="<?= site_url('assets/site/'); ?>img/img1.png" alt="" class="img_r">
-              </div>
-              <div class="item">
-                <img src="<?= site_url('assets/site/'); ?>img/img1.png" alt="" class="img_r">
-              </div>
+              <?php
+                foreach($productImages as $productImage){
+              ?>
+                  <div class="item">
+                    <img src="<?= site_url($productImage['product_image']); ?>" alt="" class="img_r">
+                  </div>
+              <?php
+                }
+              ?>
               <div class="item">
                 <img src="<?= site_url('assets/site/'); ?>img/img1.png" alt="" class="img_r">
               </div>
             </div>
 
             <div id="sync2" class="owl-carousel owl-theme">
-              <div class="item">
-                <img src="<?= site_url('assets/site/'); ?>img/img1.png" alt="" class="img_r">
-              </div>
-              <div class="item">
-                <img src="<?= site_url('assets/site/'); ?>img/img1.png" alt="" class="img_r">
-              </div>
-              <div class="item">
-                <img src="<?= site_url('assets/site/'); ?>img/img1.png" alt="" class="img_r">
-              </div>
-              <div class="item">
-                <img src="<?= site_url('assets/site/'); ?>img/img1.png" alt="" class="img_r">
-              </div>
-              <div class="item">
-                <img src="<?= site_url('assets/site/'); ?>img/img1.png" alt="" class="img_r">
-              </div>
-              <div class="item">
-                <img src="<?= site_url('assets/site/'); ?>img/img1.png" alt="" class="img_r">
-              </div>
-              <div class="item">
-                <img src="<?= site_url('assets/site/'); ?>img/img1.png" alt="" class="img_r">
-              </div>
+              <?php
+                foreach($productImages as $productImage){
+              ?>
+                  <div class="item">
+                    <img src="<?= site_url($productImage['product_image']); ?>" alt="" class="img_r">
+                  </div>
+              <?php
+                }
+              ?>
               <div class="item">
                 <img src="<?= site_url('assets/site/'); ?>img/img1.png" alt="" class="img_r">
               </div>

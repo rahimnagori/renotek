@@ -58,6 +58,7 @@ $route['Contact-Us'] = 'Home/contact';
 $route['Shop'] = 'Home/shop';
 $route['Product-Details/(:any)'] = 'Home/product_details/$1';
 
+$route['Contact-Admin'] = 'Home/send_contact_request';
 
 $route['Admin'] = 'Admin';
 $route['Update-Admin'] = 'Admin_Dashboard/update_profile';
