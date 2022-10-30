@@ -8,9 +8,10 @@
       </div>
       <div class="col-sm-4">
         <ul class="ul_set socila_foo">
-          <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
-          <li><a href="#" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+          <li><a href="#" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=100063714533170" target="_blank"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="https://www.instagram.com/renotekelectric/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
         </ul>
       </div>
     </div>

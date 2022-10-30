@@ -27,22 +27,25 @@
                      <i class="fa fa-envelope"></i>
                      <h4>Email</h4>
                      <p>
-                        <a href="#">info@gmail.com</a>
+                        <a href="mailto:support@renotek.in">Support</a>
                      </p>
                   </div>
                   <div class="ion_left">
                      <i class="fa fa-phone"></i>
                      <h4>Phone</h4>
                      <p>
-                        <a href="tel:+91-78635555555">+91-78635555555</a>
+                        <a href="tel:+91-9319313401">+91-9319313401</a>
                      </p>
                   </div>
                   <div class="ion_left">
                      <i class="fa fa-map-marker"></i>
                      <h4>Address</h4>
                      <p>
-                        PVCX+H23, Kanadia Rd, Goyal Nagar, Indore, Madhya Pradesh 452018
+                        Kosi Road, Tehsil Kaman, District Bharatpur, Rajasthan - 321022
                      </p>
+                  </div>
+                  <div class="ion_left">
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28272.892449095314!2d77.25277384358654!3d27.652020064219478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39731edb7cbdf48b%3A0x555da5c5661eb68a!2sKaman%2C%20Rajasthan%20321022!5e0!3m2!1sen!2sin!4v1667138343510!5m2!1sen!2sin" width="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                   </div>
                </div>
             </div>
