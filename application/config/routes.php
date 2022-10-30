@@ -80,3 +80,8 @@ $route['Admin-Products/Add'] = 'Admin_Products/add_product';
 $route['Admin-Products/delete'] = 'Admin_Products/delete_product';
 $route['Admin-Products/Update'] = 'Admin_Products/update_product';
 
+$route['Admin-Image/(:any)'] = 'Admin_Products/image/$1';
+$route['Image-Admin/Get/(:any)'] = 'Admin_Products/get_image/$1';
+$route['Image-Admin/Add'] = 'Admin_Products/add_image';
+$route['Image-Admin/delete'] = 'Admin_Products/delete_image';
+$route['Image-Admin/Update'] = 'Admin_Products/update_image';

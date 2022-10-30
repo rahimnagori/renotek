@@ -2,7 +2,7 @@
 
 <div class="conten_web">
   <h4 class="heading">
-    Products <small>Management</small>
+    Product Images <small>Management</small>
     <?php
     if (true || isset($permissions[8]) && $permissions[8]) {
     ?>
@@ -11,6 +11,11 @@
     }
     ?>
   </h4>
+  <h6>
+    <a href="<?=site_url('Product-Details/' .$productDetails['id']);?>" target="_blank" >
+      <?= $productDetails['product_title']; ?>
+    </a>
+  </h6>
   <div class="white_box">
     <?= $this->session->flashdata('responseMessage'); ?>
     <div class="card_bodym">
@@ -19,12 +24,7 @@
           <thead>
             <tr>
               <th>S.No.</th>
-              <th>Category</th>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Price</th>
-              <th>Home Page</th>
-              <th>Best Sell</th>
+              <th>Image</th>
               <th>Created</th>
               <?php
               if (true || isset($permissions[9]) && $permissions[9]) {
@@ -37,25 +37,20 @@
           </thead>
           <tbody>
             <?php
-            foreach ($products as $serialNumber => $product) {
-              $description = strip_tags(substr($product['product_description'], 0, 100));
+            foreach ($productImages as $serialNumber => $productImage) {
             ?>
               <tr>
                 <td><?= $serialNumber + 1; ?></td>
-                <td><?= $product['category_name']; ?></td>
-                <td><?= $product['product_title']; ?></td>
-                <td><?= $description; ?></td>
-                <td><?= $product['product_price']; ?></td>
-                <td><?= ($product['is_home_page'] == 1) ? 'Yes' : 'No'; ?></td>
-                <td><?= ($product['is_best_sell'] == 1) ? 'Yes' : 'No'; ?></td>
-                <td><?= date("d M, Y", strtotime($product['created'])); ?></td>
+                <td>
+                  <img src="<?=site_url($productImage['product_image']);?>" width="200" >
+                </td>
+                <td><?= date("d M, Y", strtotime($productImage['created'])); ?></td>
                 <?php
                 if (true || isset($permissions[9]) && $permissions[9]) {
                 ?>
                   <td>
-                    <button onclick="edit_product(<?= $product['id'] ?>)" class="btn btn-info btn-xs">Edit</button>
-                    <button class="btn btn-danger btn-xs" onclick="open_delete_modal(<?= $product['id'] ?>)">Delete</button>
-                    <a class="btn btn-info btn-xs" href="<?=site_url('Admin-Image/' .$product['id']);?>">Images</a>
+                    <button onclick="edit_product(<?= $productImage['id'] ?>)" class="btn btn-info btn-xs">Edit</button>
+                    <button class="btn btn-danger btn-xs" onclick="open_delete_modal(<?= $productImage['id'] ?>)">Delete</button>
                   </td>
                 <?php
                 }
@@ -77,59 +72,22 @@
     <form id="addForm" name="addForm" onsubmit="add_product(event);">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Add Category</h4>
+          <h4 class="modal-title">Add Image</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="la la-times-circle"></i></span></button>
         </div>
 
         <div class="modal-body">
           <div class="optio_raddipo">
             <div class="form-group">
-              <label> Title </label>
-              <input type="text" name="product_title" class="form-control" required="">
+              <input type="file" accept="image/*" required="" name="product_image" onchange="preview_image(this, 'preview_add_image');" />
+              <input type="hidden" name="product_id" value="<?=$productDetails['id'];?>" />
             </div>
-            <div class="form-group">
-              <label> Description </label>
-              <textarea class="form-control textarea" name="product_description" required=""></textarea>
-            </div>
-            <div class="form-group">
-              <label> Price </label>
-              <input type="number" step="1" name="product_price" class="form-control" required="">
-            </div>
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label> Category </label>
-                  <select name="category_id" required="" class="form-control" >
-                    <?php
-                      foreach($categories as $category){
-                    ?>
-                        <option value="<?=$category['id'];?>"><?=$category['category_name'];?></option>
-                    <?php
-                      }
-                    ?>
-                  </select>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label>Is Home Page</label>
-                  <input type="radio" name="is_home_page" value="0" checked > No
-                  <input type="radio" name="is_home_page" value="1"> Yes
-                </div>
-              </div>
-              <div class="col-sm-4">
-              <div class="form-group">
-                  <label>Is Best Sell</label>
-                  <input type="radio" name="is_best_sell" value="0" checked > No
-                  <input type="radio" name="is_best_sell" value="1"> Yes
-                </div>
-              </div>
-            </div>
+            <div id="preview_add_image"></div>
             <div class="row">
               <div class="col-sm-12" class="responseMessage" id="responseMessage"></div>
             </div>
             <div class="form-group">
-              <button class="btn btn_theme2 btn-lg btn_submit">Add</button>
+              <button class="btn btn_theme2 btn-lg btn_submit" type="submit">Add</button>
             </div>
           </div>
         </div>
@@ -152,8 +110,9 @@
         <div class="modal-body">
           <div class="optio_raddipo">
             <div class="form-group">
-              <label> Are you sure you want to delete this Category? </label>
-              <input type="hidden" name="delete_product_id" id="delete_product_id" />
+              <label> Are you sure you want to delete this Image? </label>
+              <input type="hidden" name="delete_image_id" id="delete_image_id" />
+              <input type="hidden" name="product_id" id="product_id" value="<?=$productDetails['id'];?>" />
             </div>
             <div class="row">
               <div class="col-sm-12" class="responseMessage" id="responseMessage"></div>
@@ -190,14 +149,13 @@
 <!-- Modal close-->
 
 <?php include 'include/footer.php'; ?>
-<?php include 'include/tinymce.php'; ?>
 
 <script>
   function add_product(e) {
     e.preventDefault();
     $.ajax({
       type: 'POST',
-      url: BASE_URL + 'Admin-Products/Add',
+      url: BASE_URL + 'Image-Admin/Add',
       data: new FormData($('#addForm')[0]),
       dataType: 'JSON',
       processData: false,
@@ -218,7 +176,7 @@
   }
 
   function open_delete_modal(id) {
-    $("#delete_product_id").val(id);
+    $("#delete_image_id").val(id);
     $("#deleteCategoryModal").modal("show");
   }
 
@@ -226,7 +184,7 @@
     e.preventDefault();
     $.ajax({
       type: 'POST',
-      url: BASE_URL + 'Admin-Products/delete',
+      url: BASE_URL + 'Image-Admin/delete',
       data: new FormData($('#deleteForm')[0]),
       dataType: 'JSON',
       processData: false,
@@ -249,7 +207,7 @@
   function edit_product(product_id) {
     $.ajax({
       type: 'GET',
-      url: BASE_URL + 'Admin-Products/Get/' + product_id,
+      url: BASE_URL + 'Image-Admin/Get/' + product_id,
       dataType: 'HTML',
       beforeSend: function(xhr) {
         $("#editModal").html("<i class='fa fa-spin fa-spinner' aria-hidden='true'></i>")
@@ -266,7 +224,7 @@
     e.preventDefault();
     $.ajax({
       type: 'POST',
-      url: BASE_URL + 'Admin-Products/Update',
+      url: BASE_URL + 'Image-Admin/Update',
       data: new FormData($('#editForm')[0]),
       dataType: 'JSON',
       processData: false,
@@ -295,4 +253,15 @@
       $("#addLocationHtml").html("");
     }
   }
+
+function preview_image(input, previewId) {
+  if (input.files && input.files[0]) {
+    let reader = new FileReader();
+    reader.onload = function(e) {
+      let imageFile = `<img src="${e.target.result}" style="width:100%" > `;
+      $('#' + previewId).html(imageFile);
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
 </script>
