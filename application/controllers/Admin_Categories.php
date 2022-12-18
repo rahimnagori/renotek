@@ -69,6 +69,10 @@ class Admin_Categories extends CI_Controller
   {
     if (true || $this->Common_Model->is_admin_authorized($this->session->userdata('id'), 9)) {
       $pageData['categoryDetails'] = $this->Common_Model->fetch_records('categories', array('id' => $id), false, true);
+      $parentCategories = $this->Common_Model->fetch_records('categories', array('parent_id' => 0));
+      foreach( $parentCategories as $parentCategory){
+        $pageData['parentCategories'][$parentCategory['id']] = $parentCategory;
+      }
       $this->load->view('admin/include/category_details', $pageData);
     } else {
       $response['status'] = 2;
