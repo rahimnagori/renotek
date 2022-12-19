@@ -109,6 +109,7 @@
     <div class="conten_set ">
       <h4>Low-Voltage</h4>
       <p>A Low-voltage power, supply is sufficient for Renotek  LED illumination. This makes It easy to use Renotek LED  lighting also in outdoor settings, by connecting on external solor-energy source. This Is a big advantage when It comes to using Renotek LED technology In remote or rural areas.</p>
+      <p>Did these top 10 benefits of Renotek LED lighting convinced you ? Renotek  LED lighting has even more benefits and advantages, makesure you use Renotek  LED solutions and save both the planet-and your money!</p>
     </div>
   </div>
 </div>
