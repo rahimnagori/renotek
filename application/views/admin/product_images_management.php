@@ -42,7 +42,7 @@
               <tr>
                 <td><?= $serialNumber + 1; ?></td>
                 <td>
-                  <img src="<?=site_url($productImage['product_image']);?>" width="200" >
+                  <img src="<?=site_url($productImage['product_image']);?>" width="100" >
                 </td>
                 <td><?= date("d M, Y", strtotime($productImage['created'])); ?></td>
                 <?php
