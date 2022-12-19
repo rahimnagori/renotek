@@ -99,22 +99,9 @@
       </div>
       <div class="col-sm-6" data-aos="flip-right" data-aos-duration="2000">
         <div class="conten_set">
-          <h2 class="hea_2">WELCOME TO Renotek LIGHTS
-          </h2>
-          <p>
-
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate id est laborum. </p>
-          <!-- <ul class="ul_set list_iocon">
-            
-         <li><i class="fa fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-         <li><i class="fa fa-check-circle"></i> Lorem Ipsum is simply dummy printing.</li>
-         <li><i class="fa fa-check-circle"></i> Lorem Ipsum is simply industry.</li>
-
-          </ul> -->
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate id est laborum.
-          </p>
-          <a href="#" class="btn btn_theme btn_r btn-lg">Read More</a>
+          <h2 class="hea_2">WELCOME TO <?=$this->config->item('PROJECT');?>
+          <p>Lucent today, with global operations, Is headquartered In India. Our primary businesses to provide energy efficiency solutions Including LED lighting for industrial, commercial and residential consumers. Our solutions help our customers minimize their energy Consumption cost. and enhance their usage experience from our world class offering of LED lighting, smart office & home solutions. We have been able to develop and offer specific lighting solutions for a wide variety of Industries including mining, textiles & hosiery, construction, roads, ports and commercials set ups such as malls and large stadiums. Besides our portfolio of lighting solutions for residential segment Is benchmarked as amongst the best In !he Industry. Our team of expert’s researchers uses their findings to develop improved solutions that reduces excessive energy wastage which ultimately lead to significant cost and resource savings.</p>
+          <a href="<?=site_url('About-Us');?>" class="btn btn_theme btn_r btn-lg">Read More</a>
         </div>
       </div>
     </div>
