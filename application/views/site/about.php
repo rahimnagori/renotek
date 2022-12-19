@@ -2,7 +2,7 @@
   <div class="container">
     <h2>About Us</h2>
     <ul class="ul_set">
-      <li><a href="<?=site_url();?>">Home</a></li>
+      <li><a href="<?= site_url(); ?>">Home</a></li>
       <li><span>About Us</span></li>
     </ul>
   </div>
@@ -17,8 +17,8 @@
       </div>
       <div class="col-sm-6" data-aos="flip-right" data-aos-duration="2000">
         <div class="conten_set">
-        <h2 class="hea_2">WELCOME TO <?=$this->config->item('PROJECT');?>
-          <p>Lucent today, with global operations, Is headquartered In India. Our primary businesses to provide energy efficiency solutions Including LED lighting for industrial, commercial and residential consumers. Our solutions help our customers minimize their energy Consumption cost. and enhance their usage experience from our world class offering of LED lighting, smart office & home solutions. We have been able to develop and offer specific lighting solutions for a wide variety of Industries including mining, textiles & hosiery, construction, roads, ports and commercials set ups such as malls and large stadiums. Besides our portfolio of lighting solutions for residential segment Is benchmarked as amongst the best In !he Industry. Our team of expert’s researchers uses their findings to develop improved solutions that reduces excessive energy wastage which ultimately lead to significant cost and resource savings.</p>
+          <h2 class="hea_2">WELCOME TO <?= $this->config->item('PROJECT'); ?>
+            <p>Renotek today, with global operations, Is headquartered In India. Our primary businesses to provide energy efficiency solutions Including LED lighting for industrial, commercial and residential consumers. Our solutions help our customers minimize their energy Consumption cost. and enhance their usage experience from our world class offering of LED lighting, smart office & home solutions. We have been able to develop and offer specific lighting solutions for a wide variety of Industries including mining, textiles & hosiery, construction, roads, ports and commercials set ups such as malls and large stadiums. Besides our portfolio of lighting solutions for residential segment Is benchmarked as amongst the best In !he Industry. Our team of expert’s researchers uses their findings to develop improved solutions that reduces excessive energy wastage which ultimately lead to significant cost and resource savings.</p>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@
   <div class="container">
     <div class="conten_set ">
       <h4>Long Life</h4>
-      <p>Renotek products Invariably carry a long life time and this stands out as the number one benefit of our LED products, Renotek LED bulbs and diodes have on outstanding operotlonal life time expectation of  up to 1.00.000 hours. this Is 11 years of continuous operation. Or 22 years of 50% operation. If you leave a Renotek switched on for 8 hours per day It would take around 20 years before you'd have to replace a  Renotek LED bulb.</p>
+      <p>Renotek products Invariably carry a long life time and this stands out as the number one benefit of our LED products, Renotek LED bulbs and diodes have on outstanding operotlonal life time expectation of up to 1.00.000 hours. this Is 11 years of continuous operation. Or 22 years of 50% operation. If you leave a Renotek switched on for 8 hours per day It would take around 20 years before you'd have to replace a Renotek LED bulb.</p>
     </div>
   </div>
 </div>
@@ -60,7 +60,7 @@
   <div class="container">
     <div class="conten_set ">
       <h4>Durable Quality</h4>
-      <p>Renotek LEDs  are extremely durable and built with sturdy components that are highly rugged and can withstand even the roughest conditions. Because Renotek LED products are resistant to shock, vibrations and external Impacts, they make great outdoor lighting systems for rough conditions and exposure to weather. Wind, rain or even external vandalism, traffic related public exposure and construction or manufacturing sites.</p>
+      <p>Renotek LEDs are extremely durable and built with sturdy components that are highly rugged and can withstand even the roughest conditions. Because Renotek LED products are resistant to shock, vibrations and external Impacts, they make great outdoor lighting systems for rough conditions and exposure to weather. Wind, rain or even external vandalism, traffic related public exposure and construction or manufacturing sites.</p>
     </div>
   </div>
 </div>
@@ -83,7 +83,7 @@
 <div class="sec_pad">
   <div class="container">
     <div class="conten_set ">
-      <h4>Operational  in  Extremely  Cold or Hot Temperatures</h4>
+      <h4>Operational in Extremely Cold or Hot Temperatures</h4>
       <p>Renotek LED solutions are Ideal for operation under cold and low outdoor temperature settings. For fluorescent lamps, low temperatures may affect operation and present a challenge, but Renotek LED illumination operates well also In cold settings, such as for outdoor winter settings, freezer rooms etc.</p>
     </div>
   </div>
@@ -108,8 +108,8 @@
   <div class="container">
     <div class="conten_set ">
       <h4>Low-Voltage</h4>
-      <p>A Low-voltage power, supply is sufficient for Renotek  LED illumination. This makes It easy to use Renotek LED  lighting also in outdoor settings, by connecting on external solor-energy source. This Is a big advantage when It comes to using Renotek LED technology In remote or rural areas.</p>
-      <p>Did these top 10 benefits of Renotek LED lighting convinced you ? Renotek  LED lighting has even more benefits and advantages, makesure you use Renotek  LED solutions and save both the planet-and your money!</p>
+      <p>A Low-voltage power, supply is sufficient for Renotek LED illumination. This makes It easy to use Renotek LED lighting also in outdoor settings, by connecting on external solor-energy source. This Is a big advantage when It comes to using Renotek LED technology In remote or rural areas.</p>
+      <p>Did these top 10 benefits of Renotek LED lighting convinced you ? Renotek LED lighting has even more benefits and advantages, makesure you use Renotek LED solutions and save both the planet-and your money!</p>
     </div>
   </div>
 </div>
