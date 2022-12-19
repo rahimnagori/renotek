@@ -40,33 +40,21 @@
             <li class="nav-item">
               <a class="nav-link" href="<?= site_url('About-Us'); ?>">About Us</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="<?= site_url('Shop'); ?>">Shop</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Indoor light </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="<?= site_url('Shop'); ?>">Led Backlite panel</a></li>
-                <li><a class="dropdown-item" href="<?= site_url('Shop'); ?>">Conseal</a></li>
-                <li><a class="dropdown-item" href="<?= site_url('Shop'); ?>">Cob (Spot ) LED light</a></li>
-                <li><a class="dropdown-item" href="<?= site_url('Shop'); ?>">Led bulb </a></li>
-                <li><a class="dropdown-item" href="<?= site_url('Shop'); ?>">AC/DC Bulb </a></li>
-                <li><a class="dropdown-item" href="<?= site_url('Shop'); ?>">Music bulb </a></li>
-                <li><a class="dropdown-item" href="<?= site_url('Shop'); ?>">Tubelight T-5 </a></li>
               </ul>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Outdoor light </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
                 <li><a class="dropdown-item" href="<?= site_url('Shop'); ?>">Street light </a></li>
-                <li><a class="dropdown-item" href="<?= site_url('Shop'); ?>">Flood light </a></li>
-                <li><a class="dropdown-item" href="<?= site_url('Shop'); ?>">Spike </a></li>
-                <li><a class="dropdown-item" href="<?= site_url('Shop'); ?>">Foot light</a></li>
-                <li><a class="dropdown-item" href="<?= site_url('Shop'); ?>">Spot light </a></li>
-                <li><a class="dropdown-item" href="<?= site_url('Shop'); ?>">up down light</a></li>
-                <li><a class="dropdown-item" href="<?= site_url('Shop'); ?>">4 way light</a></li>
               </ul>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link" href="<?= site_url('Contact-Us'); ?>">Contact Us</a>
             </li>
