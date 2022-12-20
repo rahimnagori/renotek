@@ -22,6 +22,7 @@ class Home extends CI_Controller
     $pageData['homeProducts'] = $this->Common_Model->join_records('products', $join, array('is_home_page' => 1), $select);
     $pageData['sellProducts'] = $this->Common_Model->join_records('products', $join, array('is_best_sell' => 1), $select);
     $pageData['categories'] = $this->Common_Model->fetch_records('categories');
+    $pageData['aboutUsContent'] = $this->Common_Model->fetch_records('pages_content', false, false, true);
 
     $this->load->view('site/include/header', $pageData);
     $this->load->view('site/index', $pageData);
@@ -47,6 +48,7 @@ class Home extends CI_Controller
   public function about()
   {
     $pageData['socialAccounts'] = $this->Common_Model->getPageData();
+    $pageData['aboutUsContent'] = $this->Common_Model->fetch_records('pages_content', false, false, true);
 
     $this->load->view('site/include/header', $pageData);
     $this->load->view('site/about', $pageData);
@@ -66,7 +68,7 @@ class Home extends CI_Controller
   {
     $pageData['socialAccounts'] = $this->Common_Model->getPageData();
     $pageData['productDetails'] = $this->Common_Model->fetch_records('products', array('id' => $id), false, true);
-    if(empty($pageData['productDetails'])) redirect('Shop');
+    if (empty($pageData['productDetails'])) redirect('Shop');
 
     $pageData['productImages'] = $this->Common_Model->fetch_records('product_images', array('product_id' => $id));
 
@@ -75,7 +77,8 @@ class Home extends CI_Controller
     $this->load->view('site/include/footer', $pageData);
   }
 
-  public function send_contact_request(){
+  public function send_contact_request()
+  {
     $response['status'] = 0;
     $response['responseMessage'] = '';
     $this->form_validation->set_rules('user_name', 'user_name', 'required|trim');
@@ -90,12 +93,12 @@ class Home extends CI_Controller
         'message' => $this->input->post('message'),
         'created' => date("Y-m-d H:i:s")
       );
-      
+
       if ($this->Common_Model->insert('contact_requests', $insert)) {
         $response['status'] = 1;
         $response['responseMessage'] = $this->Common_Model->success('Request received successfully.');
       }
-    }else{
+    } else {
       $response['status'] = 2;
       $response['responseMessage'] = $this->Common_Model->error(validation_errors());
     }

@@ -2,7 +2,7 @@
   <div class="container">
     <h2>Product</h2>
     <ul class="ul_set">
-      <li><a href="shop.php">All</a></li>
+      <li><a href="<?= site_url('Products'); ?>">All</a></li>
       <li><span><?= $productDetails['product_title']; ?></span></li>
     </ul>
   </div>
@@ -15,13 +15,13 @@
           <div class="">
             <div id="sync1" class="owl-carousel owl-theme">
               <?php
-                foreach($productImages as $productImage){
+              foreach ($productImages as $productImage) {
               ?>
-                  <div class="item">
-                    <img src="<?= site_url($productImage['product_image']); ?>" alt="" class="img_r">
-                  </div>
+                <div class="item">
+                  <img src="<?= site_url($productImage['product_image']); ?>" alt="" class="img_r">
+                </div>
               <?php
-                }
+              }
               ?>
               <div class="item">
                 <img src="<?= site_url('assets/site/'); ?>img/img1.png" alt="" class="img_r">
@@ -30,13 +30,13 @@
 
             <div id="sync2" class="owl-carousel owl-theme">
               <?php
-                foreach($productImages as $productImage){
+              foreach ($productImages as $productImage) {
               ?>
-                  <div class="item">
-                    <img src="<?= site_url($productImage['product_image']); ?>" alt="" class="img_r">
-                  </div>
+                <div class="item">
+                  <img src="<?= site_url($productImage['product_image']); ?>" alt="" class="img_r">
+                </div>
               <?php
-                }
+              }
               ?>
               <div class="item">
                 <img src="<?= site_url('assets/site/'); ?>img/img1.png" alt="" class="img_r">
@@ -47,8 +47,8 @@
       </div>
       <div class="col-md-6">
         <div class="conten_set shop_details2">
-          <h2><?=$productDetails['product_title'];?></h2>
-          <?=$productDetails['product_description'];?>
+          <h2><?= $productDetails['product_title']; ?></h2>
+          <?= $productDetails['product_description']; ?>
           <!-- <h4>Unavailable</h4> -->
           <!-- <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate id est laborum.

@@ -22,6 +22,7 @@ class Admin_Settings extends CI_Controller
     {
         $pageData = $this->Common_Model->getAdmin($this->session->userdata('id'));
         $pageData['socialAccounts'] = $this->Common_Model->fetch_records('social_accounts');
+        $pageData['pagesContent'] = $this->Common_Model->fetch_records('pages_content', false, false, true);
 
         $this->load->view('admin/admin_settings', $pageData);
     }
@@ -32,12 +33,25 @@ class Admin_Settings extends CI_Controller
         $response['responseMessage'] = $this->Common_Model->error('Something went wrong.');
         $updateSocial = [];
         $socialAccounts = $this->Common_Model->fetch_records('social_accounts');
-        foreach($socialAccounts as $socialAccount){
-            $updateSocial['is_active'] = $this->input->post($socialAccount['icon'] .'_active');
-            $updateSocial['url'] = $this->input->post($socialAccount['icon'] .'_url');
+        foreach ($socialAccounts as $socialAccount) {
+            $updateSocial['is_active'] = $this->input->post($socialAccount['icon'] . '_active');
+            $updateSocial['url'] = $this->input->post($socialAccount['icon'] . '_url');
             $where['icon'] = $socialAccount['icon'];
             $this->Common_Model->update('social_accounts', $where, $updateSocial);
         }
+        $response['status'] = 1;
+        $response['responseMessage'] = $this->Common_Model->success('Social accounts updated successfully.');
+        echo json_encode($response);
+    }
+
+    public function update_about()
+    {
+        $response['status'] = 0;
+        $response['responseMessage'] = $this->Common_Model->error('Something went wrong.');
+        $update['about_us_short'] = $this->input->post('about_us_short');
+        $update['about_us_long'] = $this->input->post('about_us_long');
+        $this->Common_Model->update('pages_content', array('id' => 1), $update);
+
         $response['status'] = 1;
         $response['responseMessage'] = $this->Common_Model->success('Social accounts updated successfully.');
         echo json_encode($response);
