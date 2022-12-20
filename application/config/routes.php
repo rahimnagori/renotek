@@ -86,3 +86,6 @@ $route['Image-Admin/Get/(:any)'] = 'Admin_Products/get_image/$1';
 $route['Image-Admin/Add'] = 'Admin_Products/add_image';
 $route['Image-Admin/delete'] = 'Admin_Products/delete_image';
 $route['Image-Admin/Update'] = 'Admin_Products/update_image';
+
+$route['Admin-Settings'] = 'Admin_Settings';
+$route['Admin-Social-Update'] = 'Admin_Settings/update_social';

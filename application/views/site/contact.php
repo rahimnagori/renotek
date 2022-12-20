@@ -24,7 +24,7 @@
                            <?php
                               foreach($socialAccounts as $socialAccount){
                            ?>
-                              <li><a href="<?=$socialAccount['url'];?>" target="_blank"><i class="<?=$socialAccount['icon'];?>"></i></a></li>
+                              <li><a href="<?=$socialAccount['url'];?>" target="_blank"><i class="fa fa-<?=$socialAccount['icon'];?>"></i></a></li>
                            <?php
                               }
                            ?>
