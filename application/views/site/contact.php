@@ -2,7 +2,7 @@
    <div class="container">
       <h2>Contact Us</h2>
       <ul class="ul_set">
-         <li><a href="index.php">Home</a></li>
+         <li><a href="<?=site_url();?>">Home</a></li>
          <li><span>Contact Us</span></li>
       </ul>
    </div>
@@ -20,6 +20,15 @@
                      <p>
                         Are you a Startup, Enterprise, or an Investor looking for
                         technology partners? We are here to help you.
+                        <ul class="ul_set socila_foo">
+                           <?php
+                              foreach($socialAccounts as $socialAccount){
+                           ?>
+                              <li><a href="<?=$socialAccount['url'];?>" target="_blank"><i class="<?=$socialAccount['icon'];?>"></i></a></li>
+                           <?php
+                              }
+                           ?>
+                        </ul>
                      </p>
                   </div>
 

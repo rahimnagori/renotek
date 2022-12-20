@@ -12,7 +12,7 @@ class Home extends CI_Controller
 
   public function index()
   {
-    $pageData = [];
+    $pageData['socialAccounts'] = $this->Common_Model->getPageData();
 
     $join[0][] = 'categories';
     $join[0][] = 'products.category_id = categories.id';
@@ -30,7 +30,7 @@ class Home extends CI_Controller
 
   public function shop()
   {
-    $pageData = [];
+    $pageData['socialAccounts'] = $this->Common_Model->getPageData();
 
     $join[0][] = 'categories';
     $join[0][] = 'products.category_id = categories.id';
@@ -46,7 +46,7 @@ class Home extends CI_Controller
 
   public function about()
   {
-    $pageData = [];
+    $pageData['socialAccounts'] = $this->Common_Model->getPageData();
 
     $this->load->view('site/include/header', $pageData);
     $this->load->view('site/about', $pageData);
@@ -55,7 +55,7 @@ class Home extends CI_Controller
 
   public function contact()
   {
-    $pageData = [];
+    $pageData['socialAccounts'] = $this->Common_Model->getPageData();
 
     $this->load->view('site/include/header', $pageData);
     $this->load->view('site/contact', $pageData);
@@ -64,7 +64,7 @@ class Home extends CI_Controller
 
   public function product_details($id)
   {
-    $pageData = [];
+    $pageData['socialAccounts'] = $this->Common_Model->getPageData();
     $pageData['productDetails'] = $this->Common_Model->fetch_records('products', array('id' => $id), false, true);
     if(empty($pageData['productDetails'])) redirect('Shop');
 

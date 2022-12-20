@@ -409,4 +409,8 @@ class Common_Model extends CI_Model
     $body .= $this->Common_Model->get_email_content(11);
     $this->send_mail($userDetails['email'], $subject, $body);
   }
+
+  public function getPageData(){
+    return $this->fetch_records('social_accounts', array('is_active' => 1));
+  }
 }
