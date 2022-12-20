@@ -43,7 +43,9 @@
               <tr>
                 <td><?= $serialNumber + 1; ?></td>
                 <td><?= $product['category_name']; ?></td>
-                <td><?= $product['product_title']; ?></td>
+                <td>
+                  <a href="<?=site_url('Product-Details/' .$product['id']);?>" target="_blank" ><?= $product['product_title']; ?></a>
+                </td>
                 <td><?= $description; ?></td>
                 <td><?= $product['product_price']; ?></td>
                 <td><?= ($product['is_home_page'] == 1) ? 'Yes' : 'No'; ?></td>
