@@ -108,12 +108,14 @@
         <div class="row">
           <?php
           foreach ($products as $product) {
+            $productImage = ($product['product_image'] && file_exists($product['product_image'])) ? $product['product_image'] : 'assets/site/img/img5.png';
           ?>
             <div class="col-sm-4">
               <div class="box_d2">
                 <span class="hobb">
                   <a href="<?= site_url('Product-Details/') . $product['id']; ?>"></a>
-                  <img src="<?= site_url('assets/site/'); ?>img/img5.png" alt="" class="img_r"></span>
+                  <img src="<?= site_url($productImage); ?>" class="img_r">
+                </span>
                 <div class="con_st">
                   <h4><?= $product['product_title']; ?></h4>
                   <h2><i class="fa fa-rupee"></i><?= $product['product_price']; ?></h2>

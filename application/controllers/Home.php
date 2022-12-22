@@ -36,7 +36,11 @@ class Home extends CI_Controller
     $join[0][] = 'categories';
     $join[0][] = 'products.category_id = categories.id';
     $join[0][] = 'left';
-    $select = 'products.*, categories.category_name';
+    $join[1][] = 'product_images';
+    $join[1][] = 'products.id = product_images.product_id';
+    $join[1][] = 'left';
+    $select = 'products.id, products.product_title, products.product_price, categories.category_name, product_images.product_image';
+
     $pageData['products'] = $this->Common_Model->join_records('products', $join, false, $select);
     $pageData['categories'] = $this->Common_Model->fetch_records('categories');
 
