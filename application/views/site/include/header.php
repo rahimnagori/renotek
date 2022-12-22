@@ -40,10 +40,10 @@
             <li class="nav-item">
               <a class="nav-link" href="<?= site_url('About-Us'); ?>">About Us</a>
             </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="<?= site_url('Shop'); ?>">Shop</a>
+            <li class="nav-item">
+              <a class="nav-link" href="<?= site_url('Products'); ?>">Products</a>
             </li>
-            <li class="nav-item dropdown">
+            <!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Indoor light </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="<?= site_url('Shop'); ?>">Led Backlite panel</a></li>

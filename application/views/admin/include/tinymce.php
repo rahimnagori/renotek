@@ -7,6 +7,7 @@
     statusbar: false,
     selector: '.textarea',
     height: 200,
+    paste_data_images: true,
     plugins: [
       "advlist autolink lists link image charmap print preview anchor",
       "searchreplace visualblocks code fullscreen",
