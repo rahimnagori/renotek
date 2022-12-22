@@ -15,7 +15,7 @@
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
                   </p>
                 </div>
-                <a href="#" class="btn btn_theme4 btn_r btn-lg">Book Now</a>
+                <!-- <a href="#" class="btn btn_theme4 btn_r btn-lg">Book Now</a> -->
               </div>
             </div>
           </div>
@@ -90,7 +90,6 @@
 
 <section class="sec_pad abhout">
   <div class="container">
-
     <div class="row align-items-center">
       <div class="col-sm-6" data-aos="flip-left" data-aos-duration="2000">
         <div class="ab_img2">

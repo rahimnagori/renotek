@@ -32,21 +32,25 @@ class Home extends CI_Controller
   public function shop()
   {
     $pageData['socialAccounts'] = $this->Common_Model->getPageData();
-
-    $join[0][] = 'categories';
-    $join[0][] = 'products.category_id = categories.id';
-    $join[0][] = 'left';
-    $join[1][] = 'product_images';
-    $join[1][] = 'products.id = product_images.product_id';
-    $join[1][] = 'left';
-    $select = 'products.id, products.product_title, products.product_price, categories.category_name, product_images.product_image';
-
-    $pageData['products'] = $this->Common_Model->join_records('products', $join, false, $select);
     $pageData['categories'] = $this->Common_Model->fetch_records('categories');
 
     $this->load->view('site/include/header', $pageData);
     $this->load->view('site/shop', $pageData);
     $this->load->view('site/include/footer', $pageData);
+  }
+
+  public function products(){
+    $startingIndex = (isset($_GET['startingIndex']) && !empty($_GET['startingIndex'])) ? $_GET['startingIndex'] : 0;
+    $totalRecords = (isset($_GET['totalRecords']) && !empty($_GET['totalRecords'])) ? $_GET['totalRecords'] : false;
+    $category = (isset($_GET['category']) && !empty($_GET['category'])) ? $_GET['category'] : false;
+    $pageData = $this->Common_Model->get_products($startingIndex, $totalRecords, $category);
+    $pageData['categories'] = $this->Common_Model->fetch_records('categories');
+    // $pageData['totalPages'] = ceil($pageData['totalProducts'] / $totalRecords);
+    // $pageData['currentPage'] = 1;
+    // $pageData['nextPage'] = $pageData['totalPages'] - $pageData['currentPage'];
+    // $pageData['prevPage'] = 0;
+    // $pageData['startingIndex'] = $startingIndex + $totalRecords;
+    $this->load->view('site/products', $pageData);
   }
 
   public function about()

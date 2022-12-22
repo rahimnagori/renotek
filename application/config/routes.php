@@ -55,7 +55,8 @@ $route['translate_uri_dashes'] = FALSE;
 $route['About-Us'] = 'Home/about';
 $route['Contact-Us'] = 'Home/contact';
 
-$route['Products'] = 'Home/shop';
+$route['Shop'] = 'Home/shop';
+$route['Products'] = 'Home/products';
 $route['Product-Details/(:any)'] = 'Home/product_details/$1';
 
 $route['Contact-Admin'] = 'Home/send_contact_request';
@@ -90,3 +91,9 @@ $route['Image-Admin/Update'] = 'Admin_Products/update_image';
 $route['Admin-Settings'] = 'Admin_Settings';
 $route['Admin-Social-Update'] = 'Admin_Settings/update_social';
 $route['Admin-About-Update'] = 'Admin_Settings/update_about';
+
+$route['Slider'] = 'Admin_Products';
+$route['Slider/Get/(:any)'] = 'Admin_Products/get_product/$1';
+$route['Slider/Add'] = 'Admin_Products/add_product';
+$route['Slider/delete'] = 'Admin_Products/delete_product';
+$route['Slider/Update'] = 'Admin_Products/update_product';

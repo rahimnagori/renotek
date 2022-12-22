@@ -2,7 +2,7 @@
   <div class="container">
     <h2>Product</h2>
     <ul class="ul_set">
-      <li><a href="<?= site_url('Products'); ?>">All</a></li>
+      <li><a href="<?= site_url('Shop'); ?>">All</a></li>
       <li><span><?= $productDetails['product_title']; ?></span></li>
     </ul>
   </div>

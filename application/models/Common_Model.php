@@ -28,6 +28,34 @@ class Common_Model extends CI_Model
     return ($singleRecords) ? $query->row_array() : $query->result_array();
   }
 
+  public function get_products($startingIndex = 0, $totalRecords = false, $category = false, $orderBy = false, $orderDirection = false)
+  {
+    $this->db->from('products');
+    $this->db->select('products.id, products.product_title, products.product_price, categories.category_name, product_images.product_image');
+
+    $this->db->join('categories', 'products.category_id = categories.id', 'left');
+    $this->db->join('product_images', 'products.id = product_images.product_id', 'left');
+
+    // if ($where) $this->db->where($where);
+    $this->db->group_by('products.id'); /* This is required to select single product image */
+    $totalProducts = $this->db->get();
+    $pageData['totalProducts'] = count($totalProducts->result_array());
+
+    $this->db->from('products');
+    $this->db->select('products.id, products.product_title, products.product_price, categories.category_name, product_images.product_image');
+
+    $this->db->join('categories', 'products.category_id = categories.id', 'left');
+    $this->db->join('product_images', 'products.id = product_images.product_id', 'left');
+
+    // if ($where) $this->db->where($where);
+    $this->db->group_by('products.id'); /* This is required to select single product image */
+    // $this->db->limit($totalRecords, $startingIndex);
+    if ($orderBy) $this->db->order_by($orderBy, $orderDirection);
+    $products = $this->db->get();
+    $pageData['products'] = $products->result_array();
+    return $pageData;
+  }
+
   public function get_user($where)
   {
     $this->db->or_where('username', $where);
@@ -410,7 +438,8 @@ class Common_Model extends CI_Model
     $this->send_mail($userDetails['email'], $subject, $body);
   }
 
-  public function getPageData(){
+  public function getPageData()
+  {
     return $this->fetch_records('social_accounts', array('is_active' => 1));
   }
 }
