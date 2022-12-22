@@ -24,7 +24,7 @@
     ?>
 </div>
 
-<div class="d-flex justify-content-center mt-4">
+<!-- <div class="d-flex justify-content-center mt-4">
     <nav aria-label="Page navigation example">
         <ul class="pagination">
             <li class="page-item">
@@ -44,4 +44,4 @@
             </li>
         </ul>
     </nav>
-</div>
+</div> -->
