@@ -4,12 +4,9 @@
       <li>
         <a href="<?= site_url('Dashboard'); ?>"><i class="fa fa-tachometer"></i> Dashboard</a>
       </li>
-      <?php
-      if (isset($permissions[4]) && $permissions[4]) {
-      ?>
-      <?php
-      }
-      ?>
+      <li>
+        <a href="<?= site_url('Slider'); ?>"><i class="fa fa-tachometer"></i> Slider Manamgement</a>
+      </li>
       <?php
       if (isset($permissions[4]) && $permissions[4]) {
       ?>
@@ -70,17 +67,6 @@
       <?php
       }
       ?>
-
-      <?php
-      if (isset($permissions[16]) && $permissions[16]) {
-      ?>
-        <li>
-          <a href="<?= site_url('Admin-Contact'); ?>"><i class="fa fa-comments-o"></i> Contact Requests</a>
-        </li>
-      <?php
-      }
-      ?>
-
       <?php
       if (isset($permissions[19]) && $permissions[19]) {
       ?>
@@ -116,15 +102,12 @@
       <li>
         <a href="<?= site_url('Admin-Products'); ?>"><i class="fa fa-gear"></i> Products</a>
       </li>
-      <?php
-      if ($adminData['admin_type'] == 1) {
-      ?>
-        <li>
-          <a href="<?= site_url('Admin-Settings'); ?>"><i class="fa fa-gear"></i> Admin Settings</a>
-        </li>
-      <?php
-      }
-      ?>
+      <li>
+        <a href="<?= site_url('Admin-Settings'); ?>"><i class="fa fa-gear"></i> Admin Settings</a>
+      </li>
+      <li>
+        <a href="<?= site_url('Admin-Contact'); ?>"><i class="fa fa-comments-o"></i> Contact Requests</a>
+      </li>
     </ul>
   </div>
 </div>

@@ -1,52 +1,43 @@
-<div class="home_slider " id="home" data-aos="zoom-in" data-aos-duration="1200">
-  <div class="owl-carousel owl-theme slider_arrrw" id="slider1">
-
-    <div class="item">
-      <div class="slider_img1">
-        <img src="<?= site_url('assets/site/'); ?>img/slider1.png" class="img_r">
-        <div class="slidr_cont">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="heading">
-                  <h1>Renotek Light What
-                    is Lorem Ipsum?</h1>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                  </p>
+<?php
+  if(count($sliderElements)){
+?>
+    <div class="home_slider " id="home" data-aos="zoom-in" data-aos-duration="1200">
+      <div class="owl-carousel owl-theme slider_arrrw" id="slider1">
+        <?php
+          foreach($sliderElements as $sliderElement){
+        ?>
+            <div class="item">
+              <div class="slider_img1">
+                <img src="<?= site_url($sliderElement['slider_image']); ?>" class="img_r">
+                <div class="slidr_cont">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="heading">
+                          <h1><?=$sliderElement['heading'];?></h1>
+                          <p><?=$sliderElement['sub_heading'];?></p>
+                        </div>
+                        <?php
+                          if($sliderElement['url']){
+                        ?>
+                            <a href="<?=$sliderElement['url']?>" target="_blank" class="btn btn_theme4 btn_r btn-lg">Read More</a>
+                        <?php
+                          }
+                        ?>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <!-- <a href="#" class="btn btn_theme4 btn_r btn-lg">Book Now</a> -->
               </div>
             </div>
-          </div>
-        </div>
+        <?php
+          }
+        ?>
       </div>
     </div>
-    <div class="item">
-      <div class="slider_img1">
-        <img src="<?= site_url('assets/site/'); ?>img/slider1.png" class="img_r">
-        <div class="slidr_cont">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="heading">
-                  <h1>Renotek Light What
-                    is Lorem Ipsum?</h1>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                  </p>
-
-                </div>
-                <a href="#" class="btn btn_theme4 btn_r btn-lg">Book Now</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
+<?php
+  }
+?>
 
 <section class="pad_t sec_1">
   <div class="container">

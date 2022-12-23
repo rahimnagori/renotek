@@ -92,8 +92,14 @@ $route['Admin-Settings'] = 'Admin_Settings';
 $route['Admin-Social-Update'] = 'Admin_Settings/update_social';
 $route['Admin-About-Update'] = 'Admin_Settings/update_about';
 
-$route['Slider'] = 'Admin_Products';
-$route['Slider/Get/(:any)'] = 'Admin_Products/get_product/$1';
-$route['Slider/Add'] = 'Admin_Products/add_product';
-$route['Slider/delete'] = 'Admin_Products/delete_product';
-$route['Slider/Update'] = 'Admin_Products/update_product';
+$route['Slider'] = 'Admin_Slider';
+$route['Slider/Get/(:any)'] = 'Admin_Slider/get_slider/$1';
+$route['Slider/Add'] = 'Admin_Slider/add_slider';
+$route['Slider/delete'] = 'Admin_Slider/delete_slider';
+$route['Slider/Update'] = 'Admin_Slider/update_slider';
+
+$route['Admin-Contact'] = 'Admin_Contact';
+// $route['Admin-Contact/Get/(:any)'] = 'Admin_Contact/get_product/$1';
+// $route['Admin-Contact/Add'] = 'Admin_Contact/add_product';
+// $route['Admin-Contact/delete'] = 'Admin_Contact/delete_product';
+// $route['Admin-Contact/Update'] = 'Admin_Contact/update_product';

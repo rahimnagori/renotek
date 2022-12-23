@@ -23,6 +23,7 @@ class Home extends CI_Controller
     $pageData['sellProducts'] = $this->Common_Model->join_records('products', $join, array('is_best_sell' => 1), $select);
     $pageData['categories'] = $this->Common_Model->fetch_records('categories');
     $pageData['aboutUsContent'] = $this->Common_Model->fetch_records('pages_content', false, false, true);
+    $pageData['sliderElements'] = $this->Common_Model->fetch_records('slider_management');
 
     $this->load->view('site/include/header', $pageData);
     $this->load->view('site/index', $pageData);
