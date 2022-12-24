@@ -58,6 +58,8 @@ $route['Contact-Us'] = 'Home/contact';
 $route['Shop'] = 'Home/shop';
 $route['Products'] = 'Home/products';
 $route['Product-Details/(:any)'] = 'Home/product_details/$1';
+$route['Add-To-Cart/(:any)'] = 'Home/add_product_to_cart/$1';
+$route['Remove-From-Cart/(:any)'] = 'Home/remove_from_cart/$1';
 
 $route['Contact-Admin'] = 'Home/send_contact_request';
 
