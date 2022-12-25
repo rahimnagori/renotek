@@ -28,10 +28,10 @@ class Common_Model extends CI_Model
     return ($singleRecords) ? $query->row_array() : $query->result_array();
   }
 
-  public function get_products($startingIndex = 0, $totalRecords = false, $category = false, $orderBy = false, $orderDirection = false)
+  public function get_products($startingIndex = 0, $totalRecords = false, $category = false, $orderBy = false, $orderDirection = false, $select = '*', $where_in_key = false, $where_in_value = false)
   {
     $this->db->from('products');
-    $this->db->select('products.id, products.product_title, products.product_price, categories.category_name, product_images.product_image');
+    if($select) $this->db->select($select);
 
     $this->db->join('categories', 'products.category_id = categories.id', 'left');
     $this->db->join('product_images', 'products.id = product_images.product_id', 'left');
@@ -41,8 +41,9 @@ class Common_Model extends CI_Model
     $totalProducts = $this->db->get();
     $pageData['totalProducts'] = count($totalProducts->result_array());
 
+    /* new query */
     $this->db->from('products');
-    $this->db->select('products.id, products.product_title, products.product_price, categories.category_name, product_images.product_image');
+    if($select) $this->db->select($select);
 
     $this->db->join('categories', 'products.category_id = categories.id', 'left');
     $this->db->join('product_images', 'products.id = product_images.product_id', 'left');
@@ -51,6 +52,7 @@ class Common_Model extends CI_Model
     $this->db->group_by('products.id'); /* This is required to select single product image */
     // $this->db->limit($totalRecords, $startingIndex);
     if ($orderBy) $this->db->order_by($orderBy, $orderDirection);
+    if ($where_in_key) $this->db->where_in($where_in_key, $where_in_value);
     $products = $this->db->get();
     $pageData['products'] = $products->result_array();
     return $pageData;
@@ -109,7 +111,8 @@ class Common_Model extends CI_Model
 
   public function send_mail($to, $subject, $body, $bcc = false, $attachments = [])
   {
-    $settings = $this->fetch_records('settings', array('id' => 1), 'smtp_user', true);
+    // $settings = $this->fetch_records('settings', array('id' => 1), 'smtp_user', true);
+    $settings['smtp_user'] = $this->config->item('EMAIL');
     $this->load->library('parser');
     $response['status'] = 0;
     $PROJECT = $this->config->item('PROJECT');

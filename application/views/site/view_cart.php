@@ -12,41 +12,21 @@
       <div class="box_d3">
          <div class="row">
             <div class="col-sm-5">
-               <!-- <table>
-                  <thead>
-                     <tr>
-                        <th>S.No.</th>
-                        <th>Title</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <?php
-                     foreach ($cartProducts as $serialNumber => $cartProduct) {
-                     ?>
-                        <tr>
-                           <td><?= $serialNumber + 1; ?></td>
-                           <td><?= $cartProduct['product_title']; ?></td>
-                        </tr>
-                     <?php
-                     }
-                     ?>
-                  </tbody>
-               </table> -->
                <div class="vieew_acart">
-               <?php
-                     foreach ($cartProducts as $serialNumber => $cartProduct) {
-                     ?>
+                  <?php
+                  foreach ($cartProducts as $serialNumber => $cartProduct) {
+                     $productImage = (isset($cartProduct['product_image']) && file_exists($cartProduct['product_image'])) ? $cartProduct['product_image'] : 'assets/site/img/img5.png';
+                  ?>
                      <div class="carr_img">
-                     <img src="<?= site_url('assets/site/'); ?>img/img5.png">
-                     <h4><?= $cartProduct['product_title']; ?></h4>
+                        <img src="<?= site_url($productImage); ?>">
+                        <h4><?= $cartProduct['product_title']; ?></h4>
                      </div>
-                     <?php
-                     }
-                     ?>
+                  <?php
+                  }
+                  ?>
                </div>
             </div>
             <div class="col-sm-7">
-               <!-- Over here -->
                <div class="box_4">
                   <div class="conten_set">
                      <h2>
@@ -101,7 +81,6 @@
                      <button type="submit" class="btn btn_theme btn-block btn_code">Submit</button>
                   </form>
                </div>
-               <!-- Over herer -->
             </div>
          </div>
       </div>
@@ -133,7 +112,6 @@
             if (response.status == 1) {
                $("#contactUsForm").addClass('hideElement');
                $("#codeForm").removeClass('hideElement');
-               // $('form#contactUsForm').trigger("reset");
             }
          }
       });
@@ -165,6 +143,7 @@
                $("#codeForm").addClass('hideElement');
                $('form#contactUsForm').trigger("reset");
                $('form#codeForm').trigger("reset");
+               $("#cart-counter").html(0);
             }
          }
       });

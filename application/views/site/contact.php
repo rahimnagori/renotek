@@ -36,21 +36,21 @@
                      <i class="fa fa-envelope"></i>
                      <h4>Email</h4>
                      <p>
-                        <a href="mailto:support@renotek.in">Support</a>
+                        <a href="mailto:<?=$this->config->item('EMAIL');?>"><?=$this->config->item('EMAIL');?></a>
                      </p>
                   </div>
                   <div class="ion_left">
                      <i class="fa fa-phone"></i>
                      <h4>Phone</h4>
                      <p>
-                        <a href="tel:+91-9319313401">+91-9319313401</a>
+                        <a href="tel:<?=$this->config->item('PHONE');?>"><?=$this->config->item('PHONE');?></a>
                      </p>
                   </div>
                   <div class="ion_left">
                      <i class="fa fa-map-marker"></i>
                      <h4>Address</h4>
                      <p>
-                        Kosi Road, Tehsil Kaman, District Bharatpur, Rajasthan - 321022
+                        <?=$this->config->item('ADDRESS');?>
                      </p>
                   </div>
                   <div class="ion_left">
