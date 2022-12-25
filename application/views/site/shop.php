@@ -148,7 +148,7 @@
         if(response.status != 1){
           $(`#add-product-btn-${product_id}`).attr('disabled', false);
         }
-        let removeBtn = `<button class="btn btn-theme" id="remove-product-btn-${product_id}" onclick="remove_from_cart(${product_id})" ><i class="fa fa-times"></i></button>`;
+        let removeBtn = `<button class="btn btn-danger" id="remove-product-btn-${product_id}" onclick="remove_from_cart(${product_id})" ><i class="fa fa-times"></i></button>`;
         $(`#add-product-btn-${product_id}`).after(removeBtn);
         $("#cart-counter").html(response.cart);
       }

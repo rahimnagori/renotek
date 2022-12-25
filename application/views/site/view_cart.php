@@ -12,7 +12,7 @@
       <div class="box_d3">
          <div class="row">
             <div class="col-sm-5">
-               <table>
+               <!-- <table>
                   <thead>
                      <tr>
                         <th>S.No.</th>
@@ -31,7 +31,19 @@
                      }
                      ?>
                   </tbody>
-               </table>
+               </table> -->
+               <div class="vieew_acart">
+               <?php
+                     foreach ($cartProducts as $serialNumber => $cartProduct) {
+                     ?>
+                     <div class="carr_img">
+                     <img src="<?= site_url('assets/site/'); ?>img/img5.png">
+                     <h4><?= $cartProduct['product_title']; ?></h4>
+                     </div>
+                     <?php
+                     }
+                     ?>
+               </div>
             </div>
             <div class="col-sm-7">
                <!-- Over here -->

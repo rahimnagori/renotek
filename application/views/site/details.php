@@ -49,8 +49,10 @@
         <div class="conten_set shop_details2">
           <h2><?= $productDetails['product_title']; ?></h2>
           <?= $productDetails['product_description']; ?>
-          <!-- <h4>Unavailable</h4> -->
-          <!-- <p>
+          
+          
+            <h4>Unavailable</h4>
+          <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate id est laborum.
           </p>
           <ul class="ul_set list_dettyt mt-4">
@@ -102,7 +104,7 @@
               <span class="opb1">Availability</span>
               <span class="opb2">In stock!</span>
             </li>
-          </ul> -->
+          </ul>
         </div>
       </div>
     </div>

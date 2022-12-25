@@ -20,7 +20,7 @@
                      <p>
                         Are you a Startup, Enterprise, or an Investor looking for
                         technology partners? We are here to help you.
-                        <ul class="ul_set socila_foo">
+                        <ul class="ul_set socila_foo" style="text-align: left;">
                            <?php
                               foreach($socialAccounts as $socialAccount){
                            ?>

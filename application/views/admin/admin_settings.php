@@ -1,5 +1,16 @@
 <?php include 'include/header.php'; ?>
-
+<style>
+  .btn_dd{
+    margin-top: 5px;
+  }
+  /* .btn_dd input:nth-child(1)
+  {
+    margin-right: 10px;
+  }
+  .btn_dd input{
+    margin-left: 5px;
+  } */
+</style>
 <div class="conten_web">
   <div class="ddd">
     <div class="row">
@@ -16,12 +27,19 @@
                 foreach ($socialAccounts as $socialAccount) {
                 ?>
                   <div class="form-group">
-                    <div class="form-group-prepend">
-                      <span class="form-group-text"><i class="fa fa-<?= $socialAccount['icon']; ?>"></i></span>
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-<?= $socialAccount['icon']; ?>"></i></span>
+                      <input type="text" class="form-control" name="<?= $socialAccount['icon']; ?>_url" value="<?= $socialAccount['url']; ?>" required />
+
                     </div>
-                    Active<input type="radio" name="<?= $socialAccount['icon']; ?>_active" value="1" <?= ($socialAccount['is_active'] == 1) ? 'checked' : ''; ?> />
-                    In-Active<input type="radio" name="<?= $socialAccount['icon']; ?>_active" value="0" <?= ($socialAccount['is_active'] == 0) ? 'checked' : ''; ?> />
-                    <input type="text" class="form-control" name="<?= $socialAccount['icon']; ?>_url" value="<?= $socialAccount['url']; ?>" required />
+                    
+
+                    <div class="btn_dd">
+                    <label class="radio-inline">Active<input type="radio" name="<?= $socialAccount['icon']; ?>_active" value="1" <?= ($socialAccount['is_active'] == 1) ? 'checked' : ''; ?> />
+                    </label>
+                    <label class="radio-inline">In-Active<input type="radio" name="<?= $socialAccount['icon']; ?>_active" value="0" <?= ($socialAccount['is_active'] == 0) ? 'checked' : ''; ?> />
+                    </label>
+                    </div>
                   </div>
                 <?php
                 }
