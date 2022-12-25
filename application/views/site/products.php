@@ -6,7 +6,10 @@
         <div class="col-sm-4">
             <div class="box_d2">
                 <span class="hobb">
-                    <button class="btn_cart" id="cart1">
+                    <button class="btn_cart" id="add-product-btn-<?= $product['id']; ?>" onclick="add_to_cart(<?= $product['id']; ?>);" <?=(in_array($product['id'], $cart)) ? 'style=display:none;' : '';?> >
+                        <i class="fa fa-shopping-cart"></i>
+                    </button>
+                    <button class="btn_cart cart_o" id="remove-product-btn-<?= $product['id']; ?>" onclick="remove_from_cart(<?= $product['id']; ?>);" <?=(!in_array($product['id'], $cart)) ? 'style=display:none;' : '';?> >
                         <i class="fa fa-shopping-cart"></i>
                     </button>
                     <a href="<?= site_url('Product-Details/') . $product['id']; ?>"></a>
@@ -20,7 +23,7 @@
                         <span><i style="background:#00a6c1;"></i></span>
                     </div>
                     <!-- <div class="btn_uuu">
-                    <button class="btn btn_theme add-to-cart-btn" id="add-product-btn-<?= $product['id']; ?>" onclick="add_to_cart(<?= $product['id']; ?>);" <?= (in_array($product['id'], $cart)) ? 'disabled="disabled"' : ''; ?>> <?= (in_array($product['id'], $cart)) ? 'Added <i class="fa fa-check-circle"></i>' : 'Add to Cart'; ?></button>
+                    <button class="btn btn_theme add-to-cart-btn" id="" <?= (in_array($product['id'], $cart)) ? 'disabled="disabled"' : ''; ?>> <?= (in_array($product['id'], $cart)) ? 'Added <i class="fa fa-check-circle"></i>' : 'Add to Cart'; ?></button>
                     <?php
                     if (in_array($product['id'], $cart)) {
                     ?>
@@ -59,9 +62,3 @@
         </ul>
     </nav>
 </div> -->
-
-<script>
-    $("#cart1").click(function(){
-  $("#cart1").toggleClass("cart_o");
-});
-</script>

@@ -141,15 +141,13 @@
       dataType: 'json',
       beforeSend: function(xhr) {
         $(`#add-product-btn-${product_id}`).attr('disabled', true);
-        $(`#add-product-btn-${product_id}`).html(LOADING);
       },
       success: function(response) {
-        $(`#add-product-btn-${product_id}`).html(response.message + ` <i class="fa fa-check-circle"></i>`);
-        if(response.status != 1){
-          $(`#add-product-btn-${product_id}`).attr('disabled', false);
-        }
-        let removeBtn = `<button class="btn btn-danger" id="remove-product-btn-${product_id}" onclick="remove_from_cart(${product_id})" ><i class="fa fa-times"></i></button>`;
-        $(`#add-product-btn-${product_id}`).after(removeBtn);
+        $(`#add-product-btn-${product_id}`).attr('disabled', false);
+        $(`#add-product-btn-${product_id}`).hide();
+        $(`#remove-product-btn-${product_id}`).show();
+        // let removeBtn = `<button class="btn btn-danger" id="remove-product-btn-${product_id}" onclick="remove_from_cart(${product_id})" ><i class="fa fa-times"></i></button>`;
+        // $(`#add-product-btn-${product_id}`).after(removeBtn);
         $("#cart-counter").html(response.cart);
       }
     });
@@ -161,11 +159,12 @@ function remove_from_cart(product_id){
     url: `${BASE_URL}Remove-From-Cart/${product_id}`,
     dataType: 'json',
     beforeSend: function(xhr) {
-      $(`#remove-product-btn-${product_id}`).remove();
+      $(`#remove-product-btn-${product_id}`).attr('disabled', true);
+      $(`#remove-product-btn-${product_id}`).hide();
     },
     success: function(response) {
-      $(`#add-product-btn-${product_id}`).attr('disabled', false);
-      $(`#add-product-btn-${product_id}`).html(response.message);
+      $(`#add-product-btn-${product_id}`).show();
+      $(`#remove-product-btn-${product_id}`).attr('disabled', false);
       $("#cart-counter").html(response.cart);
     }
   });
