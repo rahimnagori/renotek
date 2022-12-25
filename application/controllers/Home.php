@@ -208,7 +208,7 @@ class Home extends CI_Controller
       $this->form_validation->set_rules('phone', 'phone', 'required|trim');
       $this->form_validation->set_rules('message', 'message', 'required|trim');
       if ($this->form_validation->run()) {
-        $token = 1234;
+        $token = ($this->config->item('ENVIRONMENT') == 'production') ? rand(1000, 99999) : '1234';
         $insert = array(
           'user_name' => $this->input->post('user_name'),
           'email' => $this->input->post('email'),
@@ -257,7 +257,7 @@ class Home extends CI_Controller
         }
         $this->session->sess_destroy();
         $response['status'] = 1;
-        $response['responseMessage'] = $this->Common_Model->success('Quotation enquiry sent successfully. Please your email, you will also receive an confirmation email soon.');
+        $response['responseMessage'] = $this->Common_Model->success('Quotation enquiry sent successfully. Please check your email, you will also receive an confirmation email soon.');
       }else{
         $response['status'] = 2;
         $response['responseMessage'] = $this->Common_Model->error('Nothing to send. Cart is already empty. Please <a href="' .site_url('Shop') .'">add a product</a> into the cart to proceed further.');
@@ -272,7 +272,7 @@ class Home extends CI_Controller
 
   private function send_quotation_to_admin($quotationBody){
     $subject = 'Received quotation successfully.';
-    $this->Common_Model->send_mail($this->config->item('EMAIL'), $subject, $quotationBody);
+    $this->Common_Model->send_mail('noreply@renotek.in', $subject, $quotationBody);
   }
 
   private function send_confirmation_to_customer($customerEmail, $quotationBody){
