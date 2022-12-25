@@ -26,9 +26,13 @@
 
               
               <form id="socialForm" name="socialForm" method="post" onsubmit="update_social_account(event);">
+                <div class="row">
+                
+                
                 <?php
                 foreach ($socialAccounts as $socialAccount) {
                 ?>
+                <div class="col-md-6">
                   <div class="form-group">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-<?= $socialAccount['icon']; ?>"></i></span>
@@ -49,9 +53,11 @@
                     </label>
                     </div> -->
                   </div>
+                </div>
                 <?php
                 }
                 ?>
+</div>
                 <button type="submit" class="btn btn-info social_btn_submit">Update</button>
               </form>
             </div>

@@ -1,5 +1,5 @@
 <div class="user-quotation">
-    <h4 style="margin-bottom: 8px; font-size: 18px; margin-top: 0;"><strong><?= $this->config->item('PROJECT'); ?></strong></h4>
+    <!-- <h4 style="margin-bottom: 8px; font-size: 18px; margin-top: 0;"><strong><?= $this->config->item('PROJECT'); ?></strong></h4> -->
     <p style="margin-top: 0; margin-bottom:5px; font-size: 15px;">
    <?= $this->config->item('ADDRESS'); ?>
     </p>

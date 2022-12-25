@@ -19,7 +19,7 @@
 
       /*slider2*/
  $('#slider2').owlCarousel({
-    loop: true,
+    loop: false,
      margin:15,
     nav: true,
     responsive: {

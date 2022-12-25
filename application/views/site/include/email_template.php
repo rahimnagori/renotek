@@ -5,7 +5,7 @@
         <table border="0" cellpadding="10" cellspacing="0" width="600" style="border:1px solid #ddd;margin:50px 0px 100px 0px;text-align:center;color:#363636;font-family:\'Montserrat\',Arial,Helvetica,sans-serif;background-color:white">
           <tbody>
             <tr>
-              <td align="center" valign="top" style="padding:0px; background: #f1f1f1; border-bottom: 2px solid #ff156e;">
+              <td align="center" valign="top" style="padding:0px; background: #f1f1f1; border-bottom: 2px solid #ff9d3f;">
                 <table border="0" cellpadding="0" cellspacing="10" width="100%">
                   <tbody>
                     <tr>
@@ -30,7 +30,7 @@
               </td>
             </tr>
             <tr>
-              <td align="center" valign="top" style="background-color:#ff156e;color:white">
+              <td align="center" valign="top" style="background-color:#ff9d3f;color:white">
                 <table border="0" cellpadding="0" cellspacing="10" width="100%">
                   <tbody>
                     <tr>

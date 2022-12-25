@@ -90,7 +90,7 @@
       <div class="col-sm-6" data-aos="flip-right" data-aos-duration="2000">
         <div class="conten_set">
           <h2 class="hea_2">WELCOME TO <?= $this->config->item('PROJECT'); ?></h2>
-          <p><?= $aboutUsContent['about_us_short']; ?></p>
+          <p style="text-align: justify;"><?= $aboutUsContent['about_us_short']; ?></p>
           <a href="<?= site_url('About-Us'); ?>" class="btn btn_theme btn_r btn-lg">Read More</a>
         </div>
       </div>
