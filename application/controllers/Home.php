@@ -232,7 +232,7 @@ class Home extends CI_Controller
 
           $this->session->set_userdata('quotation_id', $quotationId);
           $response['status'] = 1;
-          $response['responseMessage'] = $this->Common_Model->success("We've sent you a code, check your email and enter it here to complete the quotation sending process.");
+          $response['responseMessage'] = $this->Common_Model->success("We've sent you a code on " .$insert['email'] .", check your email and enter it here to complete the quotation sending process.");
         }
       } else {
         $response['status'] = 2;

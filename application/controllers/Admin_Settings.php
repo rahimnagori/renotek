@@ -34,7 +34,8 @@ class Admin_Settings extends CI_Controller
         $updateSocial = [];
         $socialAccounts = $this->Common_Model->fetch_records('social_accounts');
         foreach ($socialAccounts as $socialAccount) {
-            $updateSocial['is_active'] = $this->input->post($socialAccount['icon'] . '_active');
+            $checkIsActive = $this->input->post($socialAccount['icon'] . '_active');
+            $updateSocial['is_active'] = ($checkIsActive && $checkIsActive == 'on') ? 1 : 0;
             $updateSocial['url'] = $this->input->post($socialAccount['icon'] . '_url');
             $where['icon'] = $socialAccount['icon'];
             $this->Common_Model->update('social_accounts', $where, $updateSocial);
@@ -53,7 +54,7 @@ class Admin_Settings extends CI_Controller
         $this->Common_Model->update('pages_content', array('id' => 1), $update);
 
         $response['status'] = 1;
-        $response['responseMessage'] = $this->Common_Model->success('Social accounts updated successfully.');
+        $response['responseMessage'] = $this->Common_Model->success('About content updated successfully.');
         echo json_encode($response);
     }
 }

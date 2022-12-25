@@ -5,7 +5,7 @@
         <a href="<?= site_url('Dashboard'); ?>"><i class="fa fa-tachometer"></i> Dashboard</a>
       </li>
       <li>
-        <a href="<?= site_url('Slider'); ?>"><i class="fa fa-tachometer"></i> Slider Manamgement</a>
+        <a href="<?= site_url('Slider'); ?>"><i class="fa fa-tachometer"></i> Slider Management</a>
       </li>
       <?php
       if (isset($permissions[4]) && $permissions[4]) {
