@@ -255,8 +255,13 @@ class Home extends CI_Controller
       $checkQuotationExist = $this->Common_Model->fetch_records('quotations', $where, false, true);
       if ($checkQuotationExist && !empty($checkQuotationExist)) {
         // $pageData['cartProducts'] = $this->Common_Model->fetch_records('products', false, '*', false, false, false, false, 'id', json_decode($checkQuotationExist['products']));
+        $prods = json_decode($checkQuotationExist['products']);
+        $products = [];
+        foreach($prods as $prod){
+          $products[] = $prod;
+        }
         $select = 'products.id, products.product_title, products.product_price, product_images.product_image, categories.category_name';
-        $products = $this->Common_Model->get_products(false, false, false, false, false, $select, 'products.id', json_decode($checkQuotationExist['products']));
+        $products = $this->Common_Model->get_products(false, false, false, false, false, $select, 'products.id', $products);
         $pageData['quotationDetails'] = $checkQuotationExist;
         $pageData['cartProducts'] = $products['products'];
         $quotationBody = $this->load->view('site/include/quotation', $pageData, true);
