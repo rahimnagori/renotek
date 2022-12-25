@@ -22,6 +22,9 @@
               <div class="box-header with-border">
                 <h3 class="box-title">Update Profile</h3>
               </div>
+             
+
+              
               <form id="socialForm" name="socialForm" method="post" onsubmit="update_social_account(event);">
                 <?php
                 foreach ($socialAccounts as $socialAccount) {
@@ -30,16 +33,21 @@
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-<?= $socialAccount['icon']; ?>"></i></span>
                       <input type="text" class="form-control" name="<?= $socialAccount['icon']; ?>_url" value="<?= $socialAccount['url']; ?>" required />
-
+                      <span style="display: table-cell; width: 60px; text-align: right;">
+                      <div class="switch">
+      <input id="switch-1" type="checkbox" class="switch-input">
+      <label for="switch-1" class="switch-label">Switch</label>
+    </div>
+                      </span>
                     </div>
                     
 
-                    <div class="btn_dd">
+                    <!-- <div class="btn_dd">
                     <label class="radio-inline">Active<input type="radio" name="<?= $socialAccount['icon']; ?>_active" value="1" <?= ($socialAccount['is_active'] == 1) ? 'checked' : ''; ?> />
                     </label>
                     <label class="radio-inline">In-Active<input type="radio" name="<?= $socialAccount['icon']; ?>_active" value="0" <?= ($socialAccount['is_active'] == 0) ? 'checked' : ''; ?> />
                     </label>
-                    </div>
+                    </div> -->
                   </div>
                 <?php
                 }

@@ -1,24 +1,25 @@
 <div class="user-quotation">
-    <div class="row"><strong><?= $this->config->item('PROJECT'); ?></strong></div>
-    <div class="row"><small><?= $this->config->item('ADDRESS'); ?></small></div>
-    <div class="row">
-        <div class="col-sm-6">Name of Customer:</div>
-        <div class="col-sm-6"><?= $quotationDetails['user_name']; ?></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-6">Phone:</div>
-        <div class="col-sm-6"><?= $quotationDetails['phone']; ?></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-6">Email:</div>
-        <div class="col-sm-6"><?= $quotationDetails['email']; ?></div>
-    </div>
-    <table>
+    <h4 style="margin-bottom: 8px; font-size: 18px; margin-top: 0;"><strong><?= $this->config->item('PROJECT'); ?></strong></h4>
+    <p style="margin-top: 0; margin-bottom:5px; font-size: 15px;">
+   <?= $this->config->item('ADDRESS'); ?>
+    </p>
+    <p style="margin-top: 0; margin-bottom:5px; font-size: 15px;">
+    Name of Customer: <b><?= $quotationDetails['user_name']; ?></b>
+    </p>
+    <p style="margin-top: 0; margin-bottom:5px; font-size: 15px;">Phone: <b><?= $quotationDetails['phone']; ?></b></p>
+
+        
+    <p style="margin-top: 0; margin-bottom:5px; font-size: 15px;">
+        Email:
+        <b><?= $quotationDetails['email']; ?> </b>
+    </p>
+    
+    <table style="margin-top: 25px; border:1px solid #ddd; width: 100%; border-collapse: collapse;">
         <thead>
             <tr>
-                <th>S.No.</th>
-                <th>Product</th>
-                <th>Category</th>
+                <th style="padding: 10px 10px; border:1px solid #ddd; text-align: left;">S.No.</th>
+                <th style="padding: 10px 10px; border:1px solid #ddd; text-align: left;">Product</th>
+                <th style="padding: 10px 10px; border:1px solid #ddd; text-align: left;">Category</th>
             </tr>
         </thead>
         <tbody>
@@ -27,12 +28,13 @@
                 $productImage = ($cartProduct['product_image'] && file_exists($cartProduct['product_image'])) ? $cartProduct['product_image'] : 'assets/site/img/img5.png';
             ?>
                 <tr>
-                    <td><?= $serialNumber + 1; ?></td>
-                    <td>
-                        <?= $cartProduct['product_title']; ?>
-                        <img src="<?= site_url($productImage); ?>" alt="<?= $cartProduct['product_title']; ?>" width="100">
+                    <td style="padding: 5px 10px; border:1px solid #ddd;"><?= $serialNumber + 1; ?></td>
+                    <td style="padding: 5px 10px; border:1px solid #ddd;">
+                    <img style="vertical-align: middle;" src="<?= site_url($productImage); ?>" alt="<?= $cartProduct['product_title']; ?>" width="70px">
+                    <?= $cartProduct['product_title']; ?>
+                        
                     </td>
-                    <td><?= $cartProduct['category_name']; ?></td>
+                    <td style="padding: 5px 10px; border:1px solid #ddd;"><?= $cartProduct['category_name']; ?></td>
                 </tr>
             <?php
             }
@@ -40,7 +42,7 @@
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="3">Total <?= count($cartProducts); ?> products.</td>
+                <td colspan="3" style="padding: 15px 10px; border:1px solid #ddd; text-align: right;">Total <?= count($cartProducts); ?> products.</td>
             </tr>
         </tfoot>
     </table>

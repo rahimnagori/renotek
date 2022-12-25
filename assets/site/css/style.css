@@ -729,7 +729,9 @@ textarea.form-control {
 
 .ion_left {
     position: relative;
-    padding-left: 70px
+    padding-left: 70px;
+    min-width: 60px;
+    margin-bottom: 20px;
 }
 
 .ion_left i {
@@ -756,7 +758,7 @@ textarea.form-control {
 .ion_left p {
     color: #777;
     max-width: 350px;
-    margin-bottom: 20px
+    margin-bottom: 0
 }
 
 .ion_left p span {
@@ -1312,6 +1314,28 @@ width: 100%;
     margin: 0;
 padding-top: 23px;
 	font-family: "RobotM";
+}
+.btn_cart {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 40px;
+	height: 40px;
+	border: 1px solid #e1e1e1;
+	background: #f9f9f9;
+	border-radius: 100%;
+	outline: none;
+	box-shadow: none;
+	z-index: 2;
+	color: var(--gray);
+	font-size: 18px;
+	text-align: center;
+    cursor: pointer;
+}
+.btn_cart.cart_o{
+    background: var(--blue);
+    border-color: var(--blue);
+    color: var(--w);
 }
 /*media start */
 
