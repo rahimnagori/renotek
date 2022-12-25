@@ -221,6 +221,15 @@ class Home extends CI_Controller
 
         $quotationId = $this->Common_Model->insert('quotations', $insert);
         if ($quotationId) {
+          $body = "<p>Hello " .$insert['user_name'] .",</p>";
+          $body .= "<p>Here is your code:</p>";
+          $body .= "<p><strong>$token</strong></p>";
+          $body .= "<p>Enter this code into the application to proceed further.</p>";
+          $subject = "Code to proceed further";
+          if($this->config->item('ENVIRONMENT') == 'production'){
+            $this->Common_Model->send_mail($insert['email'], $subject, $body);
+          }
+
           $this->session->set_userdata('quotation_id', $quotationId);
           $response['status'] = 1;
           $response['responseMessage'] = $this->Common_Model->success("We've sent you a code, check your email and enter it here to complete the quotation sending process.");
@@ -282,6 +291,7 @@ class Home extends CI_Controller
 
   public function test()
   {
+    redirect('');
     $pageData = [
       'quotationDetails' => [
         'user_name' => 'Noel Arnold Ronald Dillon',
