@@ -112,7 +112,7 @@ class Common_Model extends CI_Model
   public function send_mail($to, $subject, $body, $bcc = false, $attachments = [])
   {
     // $settings = $this->fetch_records('settings', array('id' => 1), 'smtp_user', true);
-    $settings['smtp_user'] = $this->config->item('EMAIL');
+    $settings['smtp_user'] = 'noreply@renotek.in';
     $this->load->library('parser');
     $response['status'] = 0;
     $PROJECT = $this->config->item('PROJECT');

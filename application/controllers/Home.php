@@ -285,7 +285,7 @@ class Home extends CI_Controller
 
   private function send_quotation_to_admin($quotationBody){
     $subject = 'Received quotation successfully.';
-    $this->Common_Model->send_mail('noreply@renotek.in', $subject, $quotationBody);
+    $this->Common_Model->send_mail($this->config->item('EMAIL'), $subject, $quotationBody);
   }
 
   private function send_confirmation_to_customer($customerEmail, $quotationBody){
