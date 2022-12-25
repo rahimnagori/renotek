@@ -144,7 +144,7 @@
                $('form#contactUsForm').trigger("reset");
                $('form#codeForm').trigger("reset");
                $("#cart-counter").html(0);
-               window.location = 'Shop';
+               $(".vieew_acart").html('');
             }
          }
       });

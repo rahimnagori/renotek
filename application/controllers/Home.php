@@ -280,7 +280,6 @@ class Home extends CI_Controller
       $response['status'] = 2;
       $response['responseMessage'] = $this->Common_Model->error(validation_errors());
     }
-
     echo json_encode($response);
   }
 
