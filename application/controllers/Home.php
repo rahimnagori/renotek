@@ -284,12 +284,12 @@ class Home extends CI_Controller
   }
 
   private function send_quotation_to_admin($quotationBody){
-    $subject = 'Received quotation successfully.';
+    $subject = 'New quotation received.';
     $this->Common_Model->send_mail($this->config->item('EMAIL'), $subject, $quotationBody);
   }
 
   private function send_confirmation_to_customer($customerEmail, $quotationBody){
-    $subject = 'Received quotation successfully.';
+    $subject = 'We have received your quotation.';
     $this->Common_Model->send_mail($customerEmail, $subject, $quotationBody);
   }
 
