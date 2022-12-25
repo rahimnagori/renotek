@@ -18,6 +18,14 @@
                     </div>
                 </div>
             </div>
+            <button class="btn btn-theme add-to-cart-btn" id="add-product-btn-<?=$product['id'];?>" onclick="add_to_cart(<?=$product['id'];?>);" <?=(in_array($product['id'], $cart)) ? 'disabled="disabled"' : '';?> > <?=(in_array($product['id'], $cart)) ? 'Added <i class="fa fa-check-circle"></i>' : 'Add to Cart';?></button>
+            <?php
+                if(in_array($product['id'], $cart)){
+            ?>
+                    <button class="btn btn-theme" id="remove-product-btn-<?=$product['id'];?>" onclick="remove_from_cart(<?=$product['id'];?>)" ><i class="fa fa-times"></i></button>
+            <?php
+                }
+            ?>
         </div>
     <?php
     }

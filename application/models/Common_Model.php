@@ -440,6 +440,8 @@ class Common_Model extends CI_Model
 
   public function getPageData()
   {
-    return $this->fetch_records('social_accounts', array('is_active' => 1));
+    $socialAccounts = $this->fetch_records('social_accounts', array('is_active' => 1));
+    $cart = $this->session->userdata('cart');
+    return array( 'socialAccounts' => $socialAccounts, 'cart' => (!$cart || empty($cart)) ? 0 : count($cart) );
   }
 }

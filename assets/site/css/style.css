@@ -1248,6 +1248,11 @@ width: 100%;
 	z-index: 2;
 	position: relative;
 }
+
+.hideElement{
+    display: none;
+}
+
 /*media start */
 
 @media(min-width:1600px) {

@@ -9,6 +9,7 @@
 </div>
 <div class="shop_filter sec_pad">
   <div class="container">
+    <div class="row"><div class="col-sm-12"><?=$this->session->flashdata('responseMessage');?></div></div>
     <div class="row">
       <div class="col-sm-3 filter">
         <div class="headig3">
@@ -132,4 +133,41 @@
       }
     });
   }
+
+  function add_to_cart(product_id){
+    $.ajax({
+      type: 'POST',
+      url: `${BASE_URL}Add-To-Cart/${product_id}`,
+      dataType: 'json',
+      beforeSend: function(xhr) {
+        $(`#add-product-btn-${product_id}`).attr('disabled', true);
+        $(`#add-product-btn-${product_id}`).html(LOADING);
+      },
+      success: function(response) {
+        $(`#add-product-btn-${product_id}`).html(response.message + ` <i class="fa fa-check-circle"></i>`);
+        if(response.status != 1){
+          $(`#add-product-btn-${product_id}`).attr('disabled', false);
+        }
+        let removeBtn = `<button class="btn btn-theme" id="remove-product-btn-${product_id}" onclick="remove_from_cart(${product_id})" ><i class="fa fa-times"></i></button>`;
+        $(`#add-product-btn-${product_id}`).after(removeBtn);
+        $("#cart-counter").html(response.cart);
+      }
+    });
+  }
+
+function remove_from_cart(product_id){
+  $.ajax({
+    type: 'POST',
+    url: `${BASE_URL}Remove-From-Cart/${product_id}`,
+    dataType: 'json',
+    beforeSend: function(xhr) {
+      $(`#remove-product-btn-${product_id}`).remove();
+    },
+    success: function(response) {
+      $(`#add-product-btn-${product_id}`).attr('disabled', false);
+      $(`#add-product-btn-${product_id}`).html(response.message);
+      $("#cart-counter").html(response.cart);
+    }
+  });
+}
 </script>

@@ -58,6 +58,9 @@
             <li class="nav-item">
               <a class="nav-link" href="<?= site_url('Contact-Us'); ?>">Contact Us</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<?= site_url('View-Cart'); ?>">Cart <i class="fa fa-shopping-cart"></i><span id="cart-counter" class="cart-counter"><?=$cart;?></span></a>
+            </li>
           </ul>
         </div>
       </div>
