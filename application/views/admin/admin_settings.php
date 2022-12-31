@@ -27,7 +27,7 @@
                           <input type="text" class="form-control" name="<?= $socialAccount['icon']; ?>_url" value="<?= $socialAccount['url']; ?>" required />
                           <span style="display: table-cell; width: 60px; text-align: right;">
                             <div class="switch">
-                              <input name="<?= $socialAccount['icon']; ?>_active" id="switch-<?= $socialAccount['id']; ?>" type="checkbox" class="switch-input" <?= ($socialAccount['is_active'] == 1) ? 'checked' : ''; ?> >
+                              <input name="<?= $socialAccount['icon']; ?>_active" id="switch-<?= $socialAccount['id']; ?>" type="checkbox" class="switch-input" <?= ($socialAccount['is_active'] == 1) ? 'checked' : ''; ?>>
                               <label for="switch-<?= $socialAccount['id']; ?>" class="switch-label">Switch</label>
                             </div>
                           </span>
@@ -83,6 +83,33 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="white_box">
+          <div class="card_bodym">
+            <div class="box box-info">
+              <div class="box-header with-border">
+                <h3 class="box-title">Update Catalogue</h3>
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  <form id="catalogueForm" name="catalogueForm" method="post" onsubmit="update_catalogue(event);">
+                    <div class="form-group">
+                      <label>New Catalogue <small>This will replace the old catalogue</small></label>
+                      <input type="file" id="catalogueFile" name="catalogue" required="" accept=".pdf" />
+                    </div>
+                    <button type="submit" class="btn btn-info catalogue_btn_submit">Update</button>
+                  </form>
+                </div>
+                <div class="col-sm-9">
+                  <iframe id="cataloguePreview" width="100%" height="500px" src="<?= site_url($settings['catalogue']); ?>"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -130,6 +157,28 @@
       success: function(response) {
         $(".about_btn_submit").prop('disabled', false);
         $(".about_btn_submit").html('Update');
+        if (response.status == 1) location.reload();
+      }
+    });
+  }
+
+  function update_catalogue(e) {
+    e.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: BASE_URL + 'Update-Catalogue',
+      data: new FormData($('#catalogueForm')[0]),
+      dataType: 'JSON',
+      processData: false,
+      contentType: false,
+      cache: false,
+      beforeSend: function(xhr) {
+        $(".catalogue_btn_submit").attr('disabled', true);
+        $(".catalogue_btn_submit").html(LOADING);
+      },
+      success: function(response) {
+        $(".catalogue_btn_submit").prop('disabled', false);
+        $(".catalogue_btn_submit").html('Update');
         if (response.status == 1) location.reload();
       }
     });

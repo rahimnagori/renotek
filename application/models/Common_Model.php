@@ -31,7 +31,7 @@ class Common_Model extends CI_Model
   public function get_products($startingIndex = 0, $totalRecords = false, $category = false, $orderBy = false, $orderDirection = false, $select = '*', $where_in_key = false, $where_in_value = false)
   {
     $this->db->from('products');
-    if($select) $this->db->select($select);
+    if ($select) $this->db->select($select);
 
     $this->db->join('categories', 'products.category_id = categories.id', 'left');
     $this->db->join('product_images', 'products.id = product_images.product_id', 'left');
@@ -43,7 +43,7 @@ class Common_Model extends CI_Model
 
     /* new query */
     $this->db->from('products');
-    if($select) $this->db->select($select);
+    if ($select) $this->db->select($select);
 
     $this->db->join('categories', 'products.category_id = categories.id', 'left');
     $this->db->join('product_images', 'products.id = product_images.product_id', 'left');
@@ -445,6 +445,6 @@ class Common_Model extends CI_Model
   {
     $socialAccounts = $this->fetch_records('social_accounts', array('is_active' => 1));
     $cart = $this->session->userdata('cart');
-    return array( 'socialAccounts' => $socialAccounts, 'cart' => (!$cart || empty($cart)) ? 0 : count($cart) );
+    return array('socialAccounts' => $socialAccounts, 'cart' => (!$cart || empty($cart)) ? 0 : count($cart));
   }
 }

@@ -221,18 +221,18 @@ class Home extends CI_Controller
 
         $quotationId = $this->Common_Model->insert('quotations', $insert);
         if ($quotationId) {
-          $body = "<p>Hello " .$insert['user_name'] .",</p>";
+          $body = "<p>Hello " . $insert['user_name'] . ",</p>";
           $body .= "<p>Here is your code:</p>";
           $body .= "<p><strong>$token</strong></p>";
           $body .= "<p>Enter this code into the application to proceed further.</p>";
           $subject = "Code to proceed further";
-          if($this->config->item('ENVIRONMENT') == 'production'){
+          if ($this->config->item('ENVIRONMENT') == 'production') {
             $this->Common_Model->send_mail($insert['email'], $subject, $body);
           }
 
           $this->session->set_userdata('quotation_id', $quotationId);
           $response['status'] = 1;
-          $response['responseMessage'] = $this->Common_Model->success("We've sent you a code on " .$insert['email'] .", check your email and enter it here to complete the quotation sending process.");
+          $response['responseMessage'] = $this->Common_Model->success("We've sent you a code on " . $insert['email'] . ", check your email and enter it here to complete the quotation sending process.");
         }
       } else {
         $response['status'] = 2;
@@ -257,7 +257,7 @@ class Home extends CI_Controller
         // $pageData['cartProducts'] = $this->Common_Model->fetch_records('products', false, '*', false, false, false, false, 'id', json_decode($checkQuotationExist['products']));
         $prods = json_decode($checkQuotationExist['products']);
         $products = [];
-        foreach($prods as $prod){
+        foreach ($prods as $prod) {
           $products[] = $prod;
         }
         $select = 'products.id, products.product_title, products.product_price, product_images.product_image, categories.category_name';
@@ -272,9 +272,9 @@ class Home extends CI_Controller
         $this->session->sess_destroy();
         $response['status'] = 1;
         $response['responseMessage'] = $this->Common_Model->success('Quotation enquiry sent successfully. Please check your email, you will also receive an confirmation email soon.');
-      }else{
+      } else {
         $response['status'] = 2;
-        $response['responseMessage'] = $this->Common_Model->error('Nothing to send. Cart is already empty. Please <a href="' .site_url('Shop') .'">add a product</a> into the cart to proceed further.');
+        $response['responseMessage'] = $this->Common_Model->error('Nothing to send. Cart is already empty. Please <a href="' . site_url('Shop') . '">add a product</a> into the cart to proceed further.');
       }
     } else {
       $response['status'] = 2;
@@ -283,12 +283,14 @@ class Home extends CI_Controller
     echo json_encode($response);
   }
 
-  private function send_quotation_to_admin($quotationBody){
+  private function send_quotation_to_admin($quotationBody)
+  {
     $subject = 'New quotation received.';
     $this->Common_Model->send_mail($this->config->item('EMAIL'), $subject, $quotationBody);
   }
 
-  private function send_confirmation_to_customer($customerEmail, $quotationBody){
+  private function send_confirmation_to_customer($customerEmail, $quotationBody)
+  {
     $subject = 'We have received your quotation.';
     $this->Common_Model->send_mail($customerEmail, $subject, $quotationBody);
   }
@@ -323,5 +325,14 @@ class Home extends CI_Controller
     $msgBody = $this->load->view('site/include/quotation', $pageData, true);
     $pageData['body'] = $msgBody;
     $this->load->view('site/include/email_template', $pageData);
+  }
+
+  public function get_catalogue()
+  {
+    $pageData = $this->Common_Model->getPageData();
+    $pageData['settings'] = $this->Common_Model->fetch_records('settings', false, false, true);
+    $this->load->view('site/include/header', $pageData);
+    $this->load->view('site/catalogue', $pageData);
+    $this->load->view('site/include/footer', $pageData);
   }
 }

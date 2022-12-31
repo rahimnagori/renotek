@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><?= $this->config->item('PROJECT'); ?></title>
+  <title><?= $this->config->item('PROJECT'); ?> - Admin</title>
   <link href="<?= site_url('assets/admin/'); ?>css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="<?= site_url('assets/admin/'); ?>css/owl.carousel.min.css">
   <link rel="stylesheet" href="<?= site_url('assets/admin/'); ?>css/line-awesome.min.css">

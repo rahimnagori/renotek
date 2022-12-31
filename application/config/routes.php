@@ -54,6 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['About-Us'] = 'Home/about';
 $route['Contact-Us'] = 'Home/contact';
+$route['Catalogue'] = 'Home/get_catalogue';
 
 $route['Shop'] = 'Home/shop';
 $route['Products'] = 'Home/products';
@@ -96,6 +97,7 @@ $route['Image-Admin/Update'] = 'Admin_Products/update_image';
 $route['Admin-Settings'] = 'Admin_Settings';
 $route['Admin-Social-Update'] = 'Admin_Settings/update_social';
 $route['Admin-About-Update'] = 'Admin_Settings/update_about';
+$route['Update-Catalogue'] = 'Admin_Settings/update_catalogue';
 
 $route['Slider'] = 'Admin_Slider';
 $route['Slider/Get/(:any)'] = 'Admin_Slider/get_slider/$1';
