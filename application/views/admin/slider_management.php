@@ -73,7 +73,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                     <label> Image </label>
-                    <input type="file" name="slider_image" required="" onchange="preview_image(this, 'preview-image');" >
+                    <input type="file" name="slider_image" required="" onchange="preview_image(this, 'preview-image');" accept="image/*" >
                     </div>
                 </div>
                 <div class="col-sm-6" id="preview-image"></div>

@@ -6,11 +6,11 @@
     </div>
     <div class="form-group">
         <label> Sub Heading </label>
-        <input type="text" name="sub_heading" class="form-control"  required="" value="<?= $sliderDetails['sub_heading']; ?>">
+        <input type="text" name="sub_heading" class="form-control" required="" value="<?= $sliderDetails['sub_heading']; ?>">
     </div>
     <div class="form-group">
         <label> URL </label>
-        <input type="url" name="sub_heading" class="form-control"  required="" value="<?= $sliderDetails['url']; ?>">
+        <input type="url" name="url" class="form-control" value="<?= $sliderDetails['url']; ?>">
     </div>
     <div class="row">
         <div class="col-sm-6">
