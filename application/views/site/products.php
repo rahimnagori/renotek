@@ -18,10 +18,10 @@
                 <div class="con_st">
                     <h4><?= $product['product_title']; ?></h4>
                     <h2><i class="fa fa-rupee"></i><?= $product['product_price']; ?></h2>
-                    <div class="colr">
+                    <!-- <div class="colr">
                         <span class="active"><i style="background:#c10000;"></i></span>
                         <span><i style="background:#00a6c1;"></i></span>
-                    </div>
+                    </div> -->
                     <!-- <div class="btn_uuu">
                     <button class="btn btn_theme add-to-cart-btn" id="" <?= (in_array($product['id'], $cart)) ? 'disabled="disabled"' : ''; ?>> <?= (in_array($product['id'], $cart)) ? 'Added <i class="fa fa-check-circle"></i>' : 'Add to Cart'; ?></button>
                     <?php

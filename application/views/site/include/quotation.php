@@ -31,6 +31,7 @@
                 <th style="padding: 10px 10px; border:1px solid #ddd; text-align: left;">S.No.</th>
                 <th style="padding: 10px 10px; border:1px solid #ddd; text-align: left;">Product</th>
                 <th style="padding: 10px 10px; border:1px solid #ddd; text-align: left;">Category</th>
+                <th style="padding: 10px 10px; border:1px solid #ddd; text-align: left;">Price</th>
             </tr>
         </thead>
         <tbody>
@@ -46,6 +47,7 @@
 
                     </td>
                     <td style="padding: 5px 10px; border:1px solid #ddd;"><?= $cartProduct['category_name']; ?></td>
+                    <td style="padding: 5px 10px; border:1px solid #ddd;"><?= $cartProduct['product_price']; ?> INR</td>
                 </tr>
             <?php
             }
