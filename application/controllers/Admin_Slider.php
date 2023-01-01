@@ -116,7 +116,7 @@ class Admin_Slider extends CI_Controller
             $response['status'] = 2;
             $response['responseMessage'] = $this->Common_Model->error('Sorry you are not authorized. Please contact Admin');
         }
-        // echo json_encode($response);
+        echo json_encode($response);
     }
 
     private function create_slider($update = false)
