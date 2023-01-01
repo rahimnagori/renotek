@@ -14,6 +14,21 @@
 
   const BASE_URL = "<?= site_url(); ?>";
   const LOADING = "<i class='fa fa-spin fa-spinner' aria-hidden='true'></i> Processing ... ";
+
+  function preview_image(input, previewId) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        let previewImg = $('<img />', {
+          src: e.target.result,
+          alt: 'Slider Image',
+          width: '50px'
+        });
+        $('#' + previewId).html(previewImg);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
 </script>
 <script>
   $(function() {

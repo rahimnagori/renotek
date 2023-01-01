@@ -122,6 +122,9 @@ class Home extends CI_Controller
       $this->load->view('site/include/header', $pageData);
       $this->load->view('site/view_cart', $pageData);
       $this->load->view('site/include/footer', $pageData);
+    }else{
+      $this->session->set_flashdata('responseMessage', 'Please add a product first in the cart.');\
+      redirect('Shop');
     }
   }
 
@@ -130,7 +133,7 @@ class Home extends CI_Controller
     if (empty($getCart) || !$getCart) {
       $message = $this->Common_Model->error("Please add a product in the cart first.");
       $this->session->set_flashdata('responseMessage', $message);
-      redirect('Shop');
+      return false;
     }
     return true;
   }
@@ -238,9 +241,12 @@ class Home extends CI_Controller
         $response['status'] = 2;
         $response['responseMessage'] = $this->Common_Model->error(validation_errors());
       }
-      $this->session->set_flashdata('responseMessage', $response['responseMessage']);
-      echo json_encode($response);
+    }else{
+      $response['status'] = 2;
+      $response['responseMessage'] = $this->Common_Model->error('Please add a product first from the <a href="' .site_url('Shop') .'">Shop</a> page.');
     }
+    $this->session->set_flashdata('responseMessage', $response['responseMessage']);
+    echo json_encode($response);
   }
 
   public function send_quotation()
@@ -264,10 +270,13 @@ class Home extends CI_Controller
         $products = $this->Common_Model->get_products(false, false, false, false, false, $select, 'products.id', $products);
         $pageData['quotationDetails'] = $checkQuotationExist;
         $pageData['cartProducts'] = $products['products'];
-        $quotationBody = $this->load->view('site/include/quotation', $pageData, true);
+        $pageData['isAdmin'] = true;
+        $adminQuotationBody = $this->load->view('site/include/quotation', $pageData, true);
+        $pageData['isAdmin'] = false;
+        $userQuotationBody = $this->load->view('site/include/quotation', $pageData, true);
         if ($this->config->item('ENVIRONMENT') == 'production') {
-          $this->send_quotation_to_admin($quotationBody);
-          $this->send_confirmation_to_customer($pageData['quotationDetails']['email'], $quotationBody);
+          $this->send_quotation_to_admin($adminQuotationBody);
+          $this->send_confirmation_to_customer($pageData['quotationDetails']['email'], $userQuotationBody);
         }
         $this->session->sess_destroy();
         $response['status'] = 1;
@@ -320,7 +329,8 @@ class Home extends CI_Controller
           'product_image' => '',
           'category_name' => 'Test Category'
         ]
-      ]
+        ],
+      'isAdmin' => true
     ];
     $msgBody = $this->load->view('site/include/quotation', $pageData, true);
     $pageData['body'] = $msgBody;

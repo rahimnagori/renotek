@@ -102,7 +102,17 @@
                   </form>
                 </div>
                 <div class="col-sm-9">
-                  <iframe id="cataloguePreview" width="100%" height="500px" src="<?= site_url($settings['catalogue']); ?>"></iframe>
+                  <?php
+                  if (file_exists(site_url($settings['catalogue']))) {
+                  ?>
+                    <iframe id="cataloguePreview" width="100%" height="500px" src="<?= site_url($settings['catalogue']); ?>"></iframe>
+                  <?php
+                  } else {
+                  ?>
+                    <!-- <strong>File not found</strong> -->
+                  <?php
+                  }
+                  ?>
                 </div>
               </div>
             </div>

@@ -40,7 +40,7 @@ class Admin_Slider extends CI_Controller
                 if ($this->upload->do_upload('slider_image')) {
                     $productImage = $this->upload->data("file_name");
                     $insert['slider_image'] = "assets/site/img/slider/" . $productImage;
-                    
+
                     if ($this->Common_Model->insert('slider_management', $insert)) {
                         $response['status'] = 1;
                         $response['responseMessage'] = $this->Common_Model->success('Slider added successfully.');
@@ -93,6 +93,20 @@ class Admin_Slider extends CI_Controller
         if (true || $this->Common_Model->is_admin_authorized($this->session->userdata('id'), 9)) {
             $update = $this->create_slider('update');
             $where['id'] = $this->input->post('slider_id');
+            if ($_FILES['update_slider_image']['error'] == 0) {
+                $config['upload_path'] = "assets/site/img/slider/";
+                $config['allowed_types'] = 'jpeg|gif|jpg|png';
+                $config['encrypt_name'] = true;
+                $this->load->library("upload", $config);
+                if ($this->upload->do_upload('update_slider_image')) {
+                    $sliderImage = $this->upload->data("file_name");
+                    $update['slider_image'] = "assets/site/img/slider/" . $sliderImage;
+                    $oldFile = $this->input->post('old_slider_image');
+                    // if(file_exists($oldFile)) unlink($oldFile);
+                } else {
+                    $response['responseMessage'] = $this->Common_Model->error($this->upload->display_errors());
+                }
+            }
             if ($this->Common_Model->update('slider_management', $where, $update)) {
                 $response['status'] = 1;
                 $response['responseMessage'] = $this->Common_Model->success('Slider updated successfully.');
@@ -102,7 +116,7 @@ class Admin_Slider extends CI_Controller
             $response['status'] = 2;
             $response['responseMessage'] = $this->Common_Model->error('Sorry you are not authorized. Please contact Admin');
         }
-        echo json_encode($response);
+        // echo json_encode($response);
     }
 
     private function create_slider($update = false)

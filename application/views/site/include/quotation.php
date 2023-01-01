@@ -7,6 +7,13 @@
         Name of Customer: <b><?= $quotationDetails['user_name']; ?></b>
     </p>
     <p style="margin-top: 0; margin-bottom:5px; font-size: 15px;">Phone: <b><?= $quotationDetails['phone']; ?></b></p>
+    <?php
+    if ($isAdmin) {
+    ?>
+        <p style="margin-top: 0; margin-bottom:5px; font-size: 15px;"><b><a href="https://wa.me/+91<?= $quotationDetails['phone']; ?>">WhatsApp</a></b></p>
+    <?php
+    }
+    ?>
 
     <p style="margin-top: 0; margin-bottom:5px; font-size: 15px;">
         Email:

@@ -16,11 +16,12 @@
         <div class="col-sm-6">
             <div class="form-group">
                 <label> Image </label>
-                <input type="file" name="slider_image" onchange="preview_image(this, 'preview-update-image');" >
+                <input type="file" name="update_slider_image" onchange="preview_image(this, 'preview-update-image');">
+                <input type="hidden" name="old_slider_image" value="<?= $sliderDetails['slider_image'] ?>" required="">
             </div>
         </div>
         <div class="col-sm-6" id="preview-update-image">
-            <img src="<?=site_url($sliderDetails['slider_image']);?>" width="100" >
+            <img src="<?= site_url($sliderDetails['slider_image']); ?>" width="100">
         </div>
     </div>
     <div class="row">
