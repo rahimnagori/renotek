@@ -45,7 +45,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6">
+      <!-- <div class="col-md-6">
         <div class="conten_set shop_details2">
           <h2><?= $productDetails['product_title']; ?></h2>
           <?= $productDetails['product_description']; ?>
@@ -106,7 +106,7 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
