@@ -15,6 +15,18 @@
 </head>
 
 <body>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K5LNN9ZERD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-K5LNN9ZERD');
+  </script>
   <div class="page-loader">
     <video autoplay="" muted loop>
       <source src="<?= site_url('assets/site/'); ?>video/light.mp4" type="video/mp4">
@@ -59,9 +71,9 @@
               <a class="nav-link" href="<?= site_url('Contact-Us'); ?>">Contact Us</a>
             </li>
             <li class="nav-item cartt">
-              <a class="nav-link" href="<?= site_url('View-Cart'); ?>"> 
-              <i class="fa fa-shopping-cart"></i>
-              <span id="cart-counter" class="cart-counter"><?=$cart;?></span></a>
+              <a class="nav-link" href="<?= site_url('View-Cart'); ?>">
+                <i class="fa fa-shopping-cart"></i>
+                <span id="cart-counter" class="cart-counter"><?= $cart; ?></span></a>
             </li>
           </ul>
         </div>
