@@ -1,42 +1,42 @@
 <?php
-  if(count($sliderElements)){
+if (count($sliderElements)) {
 ?>
-    <div class="home_slider " id="home" data-aos="zoom-in" data-aos-duration="1200">
-      <div class="owl-carousel owl-theme slider_arrrw" id="slider1">
-        <?php
-          foreach($sliderElements as $sliderElement){
-        ?>
-            <div class="item">
-              <div class="slider_img1">
-                <img src="<?= site_url($sliderElement['slider_image']); ?>" class="img_r">
-                <div class="slidr_cont">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="heading">
-                          <h1><?=$sliderElement['heading'];?></h1>
-                          <p><?=$sliderElement['sub_heading'];?></p>
-                        </div>
-                        <?php
-                          if($sliderElement['url']){
-                        ?>
-                            <a href="<?=$sliderElement['url']?>" target="_blank" class="btn btn_theme4 btn_r btn-lg">Read More</a>
-                        <?php
-                          }
-                        ?>
-                      </div>
+  <div class="home_slider " id="home" data-aos="zoom-in" data-aos-duration="1200">
+    <div class="owl-carousel owl-theme slider_arrrw" id="slider1">
+      <?php
+      foreach ($sliderElements as $sliderElement) {
+      ?>
+        <div class="item">
+          <div class="slider_img1">
+            <img src="<?= site_url($sliderElement['slider_image']); ?>" class="img_r">
+            <div class="slidr_cont">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="heading">
+                      <h1><?= $sliderElement['heading']; ?></h1>
+                      <p><?= $sliderElement['sub_heading']; ?></p>
                     </div>
+                    <?php
+                    if ($sliderElement['url']) {
+                    ?>
+                      <a href="<?= $sliderElement['url'] ?>" target="_blank" class="btn btn_theme4 btn_r btn-lg">Read More</a>
+                    <?php
+                    }
+                    ?>
                   </div>
                 </div>
               </div>
             </div>
-        <?php
-          }
-        ?>
-      </div>
+          </div>
+        </div>
+      <?php
+      }
+      ?>
     </div>
+  </div>
 <?php
-  }
+}
 ?>
 
 <section class="pad_t sec_1">
@@ -44,7 +44,7 @@
     <div class="heading text-center" data-aos="fade-down" data-aos-duration="1000">
 
       <h1>
-        <?=$this->config->item('PROJECT');?>
+        <?= $this->config->item('PROJECT'); ?>
       </h1>
       <p>
         Leader in lighting products.
@@ -118,7 +118,7 @@ if (count($homeProducts)) {
             <div class="box_d2">
               <span class="hobb">
                 <a href="<?= site_url('Product-Details/' . $homeProduct['id']); ?>"></a>
-                <img src="<?= (isset($homeProduct['product_image']) && file_exists(site_url($homeProduct['product_image']))) ? site_url($homeProduct['product_image']) : site_url('assets/site/img/img4.png'); ?>" alt="" class="img_r">
+                <img src="<?= isset($sellProduct['product_image']) ? site_url($sellProduct['product_image']) : site_url('assets/site/img/img4.png'); ?>" alt="" class="img_r">
               </span>
               <div class="con_st">
                 <h4><?= $homeProduct['product_title']; ?></h4>
@@ -229,7 +229,7 @@ if (count($homeProducts)) {
         <div class="conter_set">
           <i class="fa fa-diamond"></i>
           <div class="circle">
-            <span class="count"><?=count($totalProducts);?></span>
+            <span class="count"><?= count($totalProducts); ?></span>
           </div>
           <h4>
             PRODUCTS
@@ -240,7 +240,7 @@ if (count($homeProducts)) {
         <div class="conter_set">
           <i class="fa fa-coffee"></i>
           <div class="circle">
-            <span class="count"><?=count($categories);?></span>
+            <span class="count"><?= count($categories); ?></span>
           </div>
           <h4>
             CATEGORIES
@@ -251,7 +251,7 @@ if (count($homeProducts)) {
         <div class="conter_set">
           <i class="fa fa-adjust"></i>
           <div class="circle">
-            <span class="count"><?=count($contactRequests);?></span>
+            <span class="count"><?= count($contactRequests); ?></span>
           </div>
           <h4>
             ENQUIRIES
@@ -262,7 +262,7 @@ if (count($homeProducts)) {
         <div class="conter_set">
           <i class="fa fa-building"></i>
           <div class="circle">
-            <span class="count"><?=count($quotations);?></span>
+            <span class="count"><?= count($quotations); ?></span>
           </div>
           <h4>
             PROBABLE ORDERS
@@ -294,7 +294,7 @@ if (count($sellProducts)) {
             <div class="box_d2">
               <span class="hobb">
                 <a href="<?= site_url('Product-Details/' . $sellProduct['id']); ?>"></a>
-                <img src="<?= (isset($homeProduct['product_image']) && file_exists(site_url($homeProduct['product_image']))) ? site_url($homeProduct['product_image']) : site_url('assets/site/img/img4.png'); ?>" alt="" class="img_r">
+                <img src="<?= isset($sellProduct['product_image']) ? site_url($sellProduct['product_image']) : site_url('assets/site/img/img4.png'); ?>" alt="" class="img_r">
               </span>
               <div class="con_st">
                 <h4><?= $sellProduct['product_title']; ?></h4>
