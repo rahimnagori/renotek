@@ -118,7 +118,7 @@ if (count($homeProducts)) {
             <div class="box_d2">
               <span class="hobb">
                 <a href="<?= site_url('Product-Details/' . $homeProduct['id']); ?>"></a>
-                <img src="<?= isset($sellProduct['product_image']) ? site_url($sellProduct['product_image']) : site_url('assets/site/img/img4.png'); ?>" alt="" class="img_r">
+                <img src="<?= isset($homeProduct['product_image']) ? site_url($homeProduct['product_image']) : site_url('assets/site/img/img4.png'); ?>" alt="" class="img_r">
               </span>
               <div class="con_st">
                 <h4><?= $homeProduct['product_title']; ?></h4>
