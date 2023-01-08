@@ -44,15 +44,14 @@
     <div class="heading text-center" data-aos="fade-down" data-aos-duration="1000">
 
       <h1>
-        Renotek Lorem Ipsum
+        <?=$this->config->item('PROJECT');?>
       </h1>
       <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-        has been the industry's standard dummy
+        Leader in lighting products.
       </p>
 
     </div>
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-sm-6" data-aos="fade-left" data-aos-duration="1000">
         <div class="box_d1">
           <div class="conten_set">
@@ -75,7 +74,7 @@
           <img src="<?= site_url('assets/site/'); ?>img/img2.png" alt="" class="img_r">
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 
@@ -108,8 +107,7 @@ if (count($homeProducts)) {
           Our Products
         </h1>
         <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-          has been the industry's standard dummy
+          Here are the list of some of our lighting products which can add beautification in your interior and living experience.
         </p>
       </div>
       <div class="row">
@@ -120,7 +118,7 @@ if (count($homeProducts)) {
             <div class="box_d2">
               <span class="hobb">
                 <a href="<?= site_url('Product-Details/' . $homeProduct['id']); ?>"></a>
-                <img src="<?= site_url('assets/site/'); ?>img/img4.png" alt="" class="img_r">
+                <img src="<?= (isset($homeProduct['product_image']) && file_exists(site_url($homeProduct['product_image']))) ? site_url($homeProduct['product_image']) : site_url('assets/site/img/img4.png'); ?>" alt="" class="img_r">
               </span>
               <div class="con_st">
                 <h4><?= $homeProduct['product_title']; ?></h4>
@@ -220,11 +218,10 @@ if (count($homeProducts)) {
   <div class="container">
     <div class="heading text-center">
       <h1>
-        Our Product
+        Our Key Highlights
       </h1>
       <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-        has been the industry's standard dummy
+        Check out our key hightlights where we have a huge potential to lead the market
       </p>
     </div>
     <div class="row">
@@ -232,10 +229,10 @@ if (count($homeProducts)) {
         <div class="conter_set">
           <i class="fa fa-diamond"></i>
           <div class="circle">
-            <span class="count">20</span>
+            <span class="count"><?=count($totalProducts);?></span>
           </div>
           <h4>
-            STEPLIGHT
+            PRODUCTS
           </h4>
         </div>
       </div>
@@ -243,10 +240,10 @@ if (count($homeProducts)) {
         <div class="conter_set">
           <i class="fa fa-coffee"></i>
           <div class="circle">
-            <span class="count">20</span>
+            <span class="count"><?=count($categories);?></span>
           </div>
           <h4>
-            STEPLIGHT
+            CATEGORIES
           </h4>
         </div>
       </div>
@@ -254,10 +251,10 @@ if (count($homeProducts)) {
         <div class="conter_set">
           <i class="fa fa-adjust"></i>
           <div class="circle">
-            <span class="count">20</span>
+            <span class="count"><?=count($contactRequests);?></span>
           </div>
           <h4>
-            STEPLIGHT
+            ENQUIRIES
           </h4>
         </div>
       </div>
@@ -265,10 +262,10 @@ if (count($homeProducts)) {
         <div class="conter_set">
           <i class="fa fa-building"></i>
           <div class="circle">
-            <span class="count">20</span>
+            <span class="count"><?=count($quotations);?></span>
           </div>
           <h4>
-            STEPLIGHT
+            PROBABLE ORDERS
           </h4>
         </div>
       </div>
@@ -286,8 +283,7 @@ if (count($sellProducts)) {
           Best Sell
         </h1>
         <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-          has been the industry's standard dummy
+          Here is a list of some of our best selling electrical lighting products. Don't forget to check them out!!
         </p>
       </div>
       <div class="owl-carousel owl-theme slider_arrrw" id="slider2" data-aos="zoom-in" data-aos-duration="3000">
@@ -298,7 +294,7 @@ if (count($sellProducts)) {
             <div class="box_d2">
               <span class="hobb">
                 <a href="<?= site_url('Product-Details/' . $sellProduct['id']); ?>"></a>
-                <img src="<?= site_url('assets/site/'); ?>img/img4.png" alt="" class="img_r">
+                <img src="<?= (isset($homeProduct['product_image']) && file_exists(site_url($homeProduct['product_image']))) ? site_url($homeProduct['product_image']) : site_url('assets/site/img/img4.png'); ?>" alt="" class="img_r">
               </span>
               <div class="con_st">
                 <h4><?= $sellProduct['product_title']; ?></h4>
